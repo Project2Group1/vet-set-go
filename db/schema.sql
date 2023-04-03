@@ -1,0 +1,1 @@
+CREATE DATABASE vsg_db
