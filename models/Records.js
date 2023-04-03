@@ -1,5 +1,5 @@
-const {Model, Datatypes} = require('sequelize');
-const sequelize = require('../config/connections');
+const {Model, DataTypes} = require('sequelize');
+const sequelize = require('../config/connection');
 
 class Records extends Model {}
 
@@ -18,7 +18,7 @@ Records.init(
         allowNull: true
       },
       pet_id: {
-        type: Datatypes.INTEGER,
+        type: DataTypes.INTEGER,
         referenes: {
             model: 'pets',
             key: 'id',

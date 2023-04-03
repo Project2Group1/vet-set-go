@@ -14,10 +14,10 @@ Users.hasMany(Topics);
 Topics.belongsTo(Users);
 
 Users.hasMany(Comments);
-Comments.belongsTo(User);
+Comments.belongsTo(Users);
 
-Topics.hasMany(Comment);
-Comment.belongsTo(Topic);
+Topics.hasMany(Comments);
+Comments.belongsTo(Topics);
 
 module.exports = {
     Users,
