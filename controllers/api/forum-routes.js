@@ -47,8 +47,8 @@ router.get('/:id', withAuth, async (req, res) => {
 			plain: true
 		});
 
-		res.render('post', {
-			...post,
+		res.render('topic', {
+			...topic,
 			logged_in: req.session.logged_in,
 		});
 
@@ -69,5 +69,23 @@ router.post('/', withAuth, async (req, res) => {
 		res.status(500).json(err);
 	}
 });
+
+// delete route for deleting topics
+router.delete('/:id', withAuth, async (req, res) => {
+	try {
+    const topicData = await Topics.destroy({
+      where: {
+        id: req.params.id,
+        user_id: req.session.user_id,
+      },
+    });
+    if (!topicData) {
+        res.status(404).json({ message: "Sorry, that post is not available." });
+    }
+    res.status(200).json(topicData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+})
 
 module.exports = router;
