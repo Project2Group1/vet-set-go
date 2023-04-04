@@ -55,3 +55,14 @@ router.get('/:id', withAuth, async (req, res) => {
 	}
 });
 
+router.post('/', withAuth, async (req, res) => {
+	try {
+		const newTopic = await Topics.create({
+			...req.body,
+			user_id: req.session.user_id,
+		});
+		res.status(200).json(newTopic)
+	} catch (err) {
+		res.status(500).json(err);
+	}
+});
