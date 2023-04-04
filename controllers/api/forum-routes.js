@@ -2,6 +2,7 @@ const router = require('express').Router();
 const { Topics } = require('../../models');
 const withAuth = require('../../utis/auth');
 
+// get route to find all posts created
 router.get('/', withAuth, async (req, res) => {
 	try {
 		const topicsData = await Topics.findAll({
@@ -22,6 +23,7 @@ router.get('/', withAuth, async (req, res) => {
 	}
 });
 
+// get route to find a post with a specific ID
 router.get('/:id', withAuth, async (req, res) => {
 	try {
 		const topicData = await Topics.findByPk(req.params.id, {
@@ -55,6 +57,7 @@ router.get('/:id', withAuth, async (req, res) => {
 	}
 });
 
+// post route to create a new topic
 router.post('/', withAuth, async (req, res) => {
 	try {
 		const newTopic = await Topics.create({
