@@ -3,18 +3,28 @@ const { Comments } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 // route to get all comments
-router.get('/:id', withAuth, async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
 	try {
-		const commentData = await Comments.findByPk(req.params.id, {
+		const commentData = await Comments.findAll({
 			include: [{ model: Users, attributes: ['firstName', 'lastName']}],
 		});
-		if (!commentData) {
-			res.status(404).json({ message: 'Sorry, that comment is not available.' });
-			return;
-		}
 		res.status(200).json(commentData)
 	} catch (err) {
 		res.status(500).json(err);
 	}
 });
 
+// post route to create new comments
+router.post('/', withAuth, async (req, res) => {
+  try {
+    const newComment = await Comments.create({
+      ...req.body,
+      user_id: req.session.user_id,
+    });
+    res.status(200).json(newComment);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+module.exports = router;
