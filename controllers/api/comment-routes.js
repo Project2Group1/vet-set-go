@@ -1,9 +1,9 @@
 const router = require('express').Router();
 const { Comments } = require('../../models');
-const withAuth = require('../../utils/auth');
+const withAuth = require('../../utis/auth');
 
 // route to get all comments
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
 	try {
 		const commentData = await Comments.findAll({
 			include: [{ model: Users, attributes: ['firstName', 'lastName']}],
@@ -15,7 +15,7 @@ router.get('/', withAuth, async (req, res) => {
 });
 
 // post route to create new comments
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const newComment = await Comments.create({
       ...req.body,

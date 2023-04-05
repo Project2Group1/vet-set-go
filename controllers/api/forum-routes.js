@@ -3,7 +3,7 @@ const { Topics } = require('../../models');
 const withAuth = require('../../utis/auth');
 
 // get route to find all posts created
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
 	try {
 		const topicsData = await Topics.findAll({
 			include: [{ model: Users, attributes: ['firstName', 'lastName']}],
@@ -15,7 +15,6 @@ router.get('/', withAuth, async (req, res) => {
 
 		res.render('forum', {
 			topics,
-			logged_in: req.session.logged_in
 		});
 
 	} catch (err) {
@@ -49,7 +48,7 @@ router.get('/:id', withAuth, async (req, res) => {
 
 		res.render('topic', {
 			...topic,
-			logged_in: req.session.logged_in,
+			loggedIn: req.session.loggedIn,
 		});
 
 	} catch (err) {
