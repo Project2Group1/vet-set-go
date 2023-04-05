@@ -1,0 +1,19 @@
+<div>
+    <h2 class="is-size-3 p-2 mx-3">Forums</h2>
+</div>
+<div>
+    {{#each topics as |topic|}}
+        <section class="box p-2 my-0 mx-3">
+            <a href="/api/forums/{{topic.id}}">
+                <div class="level">
+                    <div class="level-left">
+                        <header class="is-size-4 has-text-dark">{{topic.titleText}}</header>
+                    </div>
+                    <div class="level-right">
+                        <p class="has-text-dark is-italic">Posted by {{topic.users.firstName}} {{topic.users.lastName}}</p>
+                    </div>
+                </div>
+            </a>
+        </section>
+    {{/each}}
+</div>

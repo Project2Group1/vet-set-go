@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Topics } = require('../../models');
+const { Topics, Users } = require('../../models');
 const withAuth = require('../../utis/auth');
 
 // get route to find all posts created
@@ -8,12 +8,13 @@ router.get('/', async (req, res) => {
 		const topicsData = await Topics.findAll({
 			include: [{ model: Users, attributes: ['firstName', 'lastName']}],
 		});
-		
+	
+
 		const topics = topicsData.map((post) => post.get({
 			plain: true
 		}));
 
-		res.render('forum', {
+		res.render('forums', {
 			topics,
 		});
 
