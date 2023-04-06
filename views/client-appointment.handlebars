@@ -1,0 +1,62 @@
+<section class="contact container">
+    <div class="hero">
+        <div class="row-full title">Make an Appointment</div>
+    </div>
+    <div class="page-content">
+        <div class="inner-content">
+          <!-- Pass in current user -->
+
+<!-- Name, species, breed, vaccination status, spayed status, birthday, sex -->
+<div class="field">
+    <div class="field-label is-normal">
+        <label class="label">Which pet would you like to make appointment for?</label>
+    </div>
+    <div class="field-body">
+        <div class="field">
+            <div class="control">
+                <div class="select is-fullwidth">
+                    <select>
+                        {{#each user.pets as |pet|}}
+                        <option>{{pet.name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+            </div>
+            <p class="help">If you would like to book an appointment for a new pet, please add the pet in your dashboard first</p>
+        </div>
+    </div>
+</div>
+
+<div class="field">
+  <div class="field-label is-normal">
+    <label class="label">What is the reason for your visit?</label>
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <textarea class="textarea" id="concern-contact"></textarea>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="field">
+  <div class="field-label">
+    <!-- Left empty for spacing -->
+  </div>
+  <div class="field-body">
+    <div class="field">
+      <div class="control">
+        <button class="button is-primary" type="submit">
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+    </div>
+</div>
+</section>
+
+<script src="/js/appointment.js"></script>

@@ -1,8 +1,9 @@
-const Users = require('./Users');
-const Records = require('./Records');
-const Topics = require('./Topics');
-const Comments = require('./Comments');
-const Pets = require('./Pets');
+const Users = require("./Users");
+const Records = require("./Records");
+const Topics = require("./Topics");
+const Comments = require("./Comments");
+const Pets = require("./Pets");
+const Appointments = require("./Appointments");
 
 Users.hasMany(Pets);
 Pets.belongsTo(Users);
@@ -19,10 +20,14 @@ Comments.belongsTo(Users);
 Topics.hasMany(Comments);
 Comments.belongsTo(Topics);
 
+Users.hasMany(Appointments);
+Appointments.belongsTo(Users);
+
 module.exports = {
-    Users,
-    Pets,
-    Records,
-    Comments,
-    Topics,
+  Users,
+  Pets,
+  Records,
+  Comments,
+  Topics,
+  Appointments,
 };
