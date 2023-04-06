@@ -8,17 +8,17 @@ const clientFormHandler = async (event) => {
 const guestFormHandler = async (event) => {
   event.preventDefault();
 
-  const id = null;
+  const user_id = null;
   const firstName = document.querySelector("#firstName-contact").value.trim();
   const lastName = document.querySelector("#lastName-contact").value.trim();
   const email = document.querySelector("#email-contact").value.trim();
-  const petName = document.querySelector("#petName-contact").value.trim();
+  const pet_name = document.querySelector("#petName-contact").value.trim();
   const species = document.querySelector("#species-contact").value.trim();
   const breed = document.querySelector("#breed-contact").value.trim();
   const birthday = document.querySelector("#birthday-contact").value.trim();
   const sex = document.querySelector("#sex-contact").value.trim();
   const allergies = document.querySelector("#allergies-contact").value.trim();
-  const spayNeutered = document
+  const isNeuteredOrSpayed = document
     .querySelector("#spayNeutered-contact")
     .value.trim();
   const vaccinated = document.querySelector("#vaccinated-contact").value.trim();
@@ -28,27 +28,27 @@ const guestFormHandler = async (event) => {
     firstName &&
     lastName &&
     email &&
-    petName &&
+    pet_name &&
     species &&
     sex &&
-    spayNeutered &&
+    isNeuteredOrSpayed &&
     vaccinated &&
     concern
   ) {
     const response = await fetch("/api/appointments", {
       method: "POST",
       body: JSON.stringify({
-        id,
+        user_id,
         firstName,
         lastName,
         email,
-        petName,
+        pet_name,
         species,
         breed,
         allergies,
         vaccinated,
         birthday,
-        spayNeutered,
+        isNeuteredOrSpayed,
         sex,
         concern,
       }),
