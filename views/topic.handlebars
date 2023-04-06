@@ -1,0 +1,38 @@
+<div>
+    <section id="topic" class="box p-0 m-3" data-id={{id}}>
+        <div class="level box">
+            <div class="level-left">
+                <h2 class="is-size-3 px-2">{{titleText}}</h2>
+            </div>
+            <div class="level-right">
+                <h4 class="is-size-6 is-italic px-2">Posted by {{firstName}} {{lastName}}</h4>
+            </div>
+        </div>
+        <div class="pb-5 m-3">
+            <p class="is-size-5 px-2">{{descriptionText}}</p>
+        </div>
+    </section>
+    <section id="comments-section">
+        <h2 class="is-size-4 p-2 mx-3">Comments:</h2>
+        {{#each comments as |comment|}}
+            <section class="card p-2 mx-3">
+                <div class="level pl-2">
+                    <div class="level-left">
+                        <header>{{comment.commentText}}</header>
+                    </div>
+                    <div class="level-right pl-2">
+                        <p class="is-italic">Commented by</p>
+                    </div>
+                </div>
+            </section>
+        {{/each}}
+         <section class="card p-2 mx-3">
+            <form class="comment-form p-2">
+                <input class="input is-normal" type="text" id="comment-input" placeholder="Leave a comment"/>
+                <button class="button is-info is-small mt-2" type="submit" id="comment-btn">Comment</button>
+            </form>
+        </section>
+    </section>
+</div>
+
+<script src="/js/comment.js"></script>
