@@ -1,7 +1,9 @@
 <section class="contact container">
     <div class="hero">
         <div class="row-full title">Make an Appointment</div>
-        <p>If you have an account, please login and return to the appointments page.</p>
+        {{#if }}
+        <p>please login and return to the appointments page.</p>
+        {{/if}}
     </div>
     <div class="page-content">
         <div class="inner-content">
