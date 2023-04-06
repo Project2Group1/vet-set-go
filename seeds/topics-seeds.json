@@ -1,12 +1,15 @@
 [
     {
-      "titleText": "Pet meetups/pet dates"
+      "titleText": "Pet meetups on April 7th",
+      "descriptionText": "Hello pet owners! We are hosting a pet meetup on April 7th (THIS FRIDAY) at DogsRUs. Bring your paw friends, and let's have a blast!"
     },
     {
-        "titleText": "Pet advice - please see a vet for emergencies"
+        "titleText": "Help!!!!!",
+        "descriptionText": "Someone help please!!! My dog got into my pantry and had some chocolate. He only had a small lick before I took it away - what should I do???"
     },
     {
-        "titleText": "Random"
+        "titleText": "Random",
+        "descriptionText": "I made this just to have a random chat with some strangers. Hi!"
     }
   ]
   

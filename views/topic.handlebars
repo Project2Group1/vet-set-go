@@ -1,10 +1,15 @@
 <div>
-    <section id="topic" class="box p-2 m-3 level" data-id={{id}}>
-        <div class="level-left">
-            <h2 class="is-size-3 p-2">Topic: {{titleText}}</h2>
+    <section id="topic" class="box p-0 m-3" data-id={{id}}>
+        <div class="level box">
+            <div class="level-left">
+                <h2 class="is-size-3 px-2">Topic: {{titleText}}</h2>
+            </div>
+            <div class="level-right">
+                <h4 class="is-size-6 is-italic px-2">Posted by {{firstName}} {{lastName}}</h4>
+            </div>
         </div>
-        <div class="level-right">
-            <h4 class="is-size-6 is-italic p-2">Posted by {{firstName}} {{lastName}}</h4>
+        <div class="pb-5 m-3">
+            <p class="is-size-5 px-2">{{descriptionText}}</p>
         </div>
     </section>
     <section id="comments-section">
