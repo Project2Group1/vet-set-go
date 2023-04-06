@@ -7,6 +7,7 @@
       
 <h2>Owner Information:</h2>
 
+<form class="guest-form">
 <div class="field">
     <div class="field-label is-normal">
         <label class="label">Name</label>
@@ -14,14 +15,14 @@
     <div class="field-body">
         <div class="field">       
             <div class="control is-expanded">
-                <input class="input" type="text" id="firstName-contact">
+                <input class="input" type="text" id="firstName-contact" required>
             </div>
             <p class="help">First</p>
         </div>
 
         <div class="field">
             <div class="control is-expanded">
-                <input class="input" type="text" id="lastName-contact">
+                <input class="input" type="text" id="lastName-contact" required>
             </div>
             <p class="help">Last</p>
         </div>
@@ -35,7 +36,7 @@
     <div class="field-body">
         <div class="field">
             <div class="control">
-                <input class="input" type="email" id="email-contact">
+                <input class="input" type="email" id="email-contact" required>
             </div>
         </div>
     </div>
@@ -51,7 +52,7 @@
     <div class="field-body">
         <div class="field">
             <div class="control">
-                <input class="input" type="text" id="petName-contact">
+                <input class="input" type="text" id="petName-contact" required>
             </div>
         </div>
     </div>
@@ -64,7 +65,7 @@
     <div class="field-body">
         <div class="field">
             <div class="control">
-                <input class="input" type="text" id="species-contact">
+                <input class="input" type="text" id="species-contact" required>
             </div>
         </div>
     </div>
@@ -79,7 +80,6 @@
             <div class="control">
                 <input class="input" type="text" id="breed-contact">
             </div>
-            <p class="help">Enter the main breed</p>
         </div>
     </div>
 </div>
@@ -107,7 +107,7 @@
     <div class="field">
       <div class="control">
         <label class="radio">
-          <input type="radio" name="client" id="sex-contact">
+          <input type="radio" name="client" id="sex-contact" checked>
           Male
         </label>
         <label class="radio">
@@ -140,11 +140,11 @@
     <div class="field">
       <div class="control">
         <label class="radio">
-          <input type="radio" name="client" id="sn-contact">
+          <input type="radio" name="client" id="spayNeutered-contact">
           Yes
         </label>
         <label class="radio">
-          <input type="radio" name="client" id="sn-contact" checked>
+          <input type="radio" name="client" id="spayNeutered-contact" checked>
           No
         </label>
       </div>
@@ -180,6 +180,7 @@
     <div class="field">
       <div class="control">
         <textarea class="textarea" id="concern-contact"></textarea>
+        <!-- cannot be null -->
       </div>
     </div>
   </div>
@@ -199,7 +200,7 @@
     </div>
   </div>
 </div>
-
+</form>
     </div>
   </div>
 </section>

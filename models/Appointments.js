@@ -12,6 +12,7 @@ Appointments.init(
         model: "users",
         key: "id",
       },
+      allowNull: true,
     },
     firstName: {
       type: DataTypes.STRING,
@@ -39,7 +40,7 @@ Appointments.init(
     },
     breed: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     allergies: {
       type: DataTypes.STRING,
@@ -59,6 +60,10 @@ Appointments.init(
     },
     sex: {
       type: DataTypes.ENUM(["male", "female"]),
+      allowNull: false,
+    },
+    concern: {
+      type: DataTypes.TEXT,
       allowNull: false,
     },
   },
