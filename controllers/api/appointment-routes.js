@@ -1,6 +1,5 @@
 const router = require("express").Router();
-const session = require("express-session");
-const { Users, Appointments } = require("../../models");
+const { Appointments } = require("../../models");
 
 // CREATE new appointment
 router.post("/", (req, res) => {
@@ -27,3 +26,5 @@ router.post("/", (req, res) => {
     res.status(500).json(err);
   }
 });
+
+module.exports = router;
