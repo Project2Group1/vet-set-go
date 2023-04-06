@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Topics, Users } = require('../../models');
+const { Topics, Users, Comments } = require('../../models');
 const withAuth = require('../../utis/auth');
 
 // get route to find all posts created
@@ -24,7 +24,7 @@ router.get('/', async (req, res) => {
 });
 
 // get route to find a post with a specific ID
-router.get('/:id', withAuth, async (req, res) => {
+router.get('/:id', async (req, res) => {
 	try {
 		const topicData = await Topics.findByPk(req.params.id, {
 			include: [
@@ -33,10 +33,12 @@ router.get('/:id', withAuth, async (req, res) => {
 				},
 				{
 					model: Comments,
-					include: [User]
+					include: [Users]
 				}
 			],
 		});
+
+		console.log(topicData)
 
 		if (!topicData) {
 			res.status(404).json({ message: 'Sorry, that post is not available.'});
@@ -49,7 +51,7 @@ router.get('/:id', withAuth, async (req, res) => {
 
 		res.render('topic', {
 			...topic,
-			loggedIn: req.session.loggedIn,
+			// loggedIn: req.session.loggedIn, //comment out for testing purposes
 		});
 
 	} catch (err) {
@@ -58,11 +60,11 @@ router.get('/:id', withAuth, async (req, res) => {
 });
 
 // post route to create a new topic
-router.post('/', withAuth, async (req, res) => {
+router.post('/', async (req, res) => {
 	try {
 		const newTopic = await Topics.create({
 			...req.body,
-			user_id: req.session.user_id,
+			// user_id: req.session.user_id,
 		});
 		res.status(200).json(newTopic)
 	} catch (err) {
@@ -71,12 +73,12 @@ router.post('/', withAuth, async (req, res) => {
 });
 
 // delete route for deleting topics
-router.delete('/:id', withAuth, async (req, res) => {
+router.delete('/:id', async (req, res) => {
 	try {
     const topicData = await Topics.destroy({
       where: {
         id: req.params.id,
-        user_id: req.session.user_id,
+        // user_id: req.session.user_id,
       },
     });
     if (!topicData) {
