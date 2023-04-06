@@ -1,5 +1,5 @@
 <div>
-    <section id="topic" class="box p-2 m-3 level">
+    <section id="topic" class="box p-2 m-3 level" data-id={{id}}>
         <div class="level-left">
             <h2 class="is-size-3 p-2">Topic: {{titleText}}</h2>
         </div>
@@ -10,22 +10,24 @@
     <section id="comments-section">
         <h2 class="is-size-4 p-2 mx-3">Comments:</h2>
         {{#each comments as |comment|}}
-            <section class="card p-3">
-                <div class="level">
+            <section class="card p-2 mx-3">
+                <div class="level pl-2">
                     <div class="level-left">
-                        <header>{{comment.comment_text}}</header>
+                        <header>{{comment.commentText}}</header>
                     </div>
-                    <div class="level-right">
-                        <p class="is-italic">Commented by {{comment.user.username}} on {{format_date date_created}}</p>
+                    <div class="level-right pl-2">
+                        <p class="is-italic">Commented by</p>
                     </div>
                 </div>
             </section>
         {{/each}}
          <section class="card p-2 mx-3">
-            <form class="comment-form p-2" data-post_id={{id}}>
+            <form class="comment-form p-2">
                 <input class="input is-normal" type="text" id="comment-input" placeholder="Leave a comment"/>
                 <button class="button is-info is-small mt-2" type="submit" id="comment-btn">Comment</button>
             </form>
         </section>
     </section>
 </div>
+
+<script src="/js/comment.js"></script>

@@ -16,8 +16,13 @@ Topics.belongsTo(Users);
 Users.hasMany(Comments);
 Comments.belongsTo(Users);
 
-Topics.hasMany(Comments);
-Comments.belongsTo(Topics);
+Topics.hasMany(Comments, {
+    foreignKey: 'topics_id',
+});
+
+Comments.belongsTo(Topics, {
+    foreignKey: 'topics_id',
+});
 
 module.exports = {
     Users,
