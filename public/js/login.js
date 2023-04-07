@@ -14,10 +14,21 @@ const loginFormHandler = async (event) => {
         if (response.ok) {
             document.location.replace('/');
         } else {
-            alert('Failed to log in.');
+            document.querySelector('#incorrect-login').removeAttribute("hidden");
         }
     }
 };
+
+// Event listener to close notification when password is incorrect
+document.addEventListener('DOMContentLoaded', () => {
+    (document.querySelectorAll('.notification .delete') || []).forEach(($delete) => {
+        const $notification = $delete.parentNode;
+
+        $delete.addEventListener('click', () => {
+            $notification.parentNode.removeChild($notification);
+        });
+    });
+});
 
 const signupFormHandler = async (event) => {
     event.preventDefault();
