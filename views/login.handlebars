@@ -43,6 +43,11 @@
                         <i class="fas fa-user"></i>
                     </span>
                 </p>
+                <div id="no-firstName" hidden>
+                    <p class="help is-danger">
+                        This field is required
+                    </p>
+                </div>
             </div>
             <div class="field">
                 <p class="control has-icons-left has-icons-right">
@@ -51,6 +56,11 @@
                         <i class="fas fa-user"></i>
                     </span>
                 </p>
+                <div id="no-lastName" hidden>
+                    <p class="help is-danger">
+                        This field is required
+                    </p>
+                </div>
             </div>
         </div>
         {{!-- Email --}}
@@ -64,6 +74,11 @@
                     <i class="fas fa-check"></i>
                 </span>
             </p>
+            <div id="no-email" hidden>
+                <p class="help is-danger">
+                    This field is required
+                </p>
+            </div>
         </div>
         {{!-- Password --}}
         <div class="field">
@@ -73,6 +88,11 @@
                     <i class="fas fa-lock"></i>
                 </span>
             </p>
+            <div id="short-password" hidden>
+                <p class="help is-danger">
+                    The password must be at least 8 characters long
+                </p>
+            </div>
         </div>
         {{!-- Submit button --}}
         <div class="field">
