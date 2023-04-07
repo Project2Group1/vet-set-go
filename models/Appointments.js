@@ -1,17 +1,36 @@
 const { Model, DataTypes } = require("sequelize");
-const sequelize = require("../config/connection");
-class Pets extends Model {}
 
-Pets.init(
+const sequelize = require("../config/connection.js");
+
+class Appointments extends Model {}
+
+Appointments.init(
   {
-    owner_id: {
+    user_id: {
       type: DataTypes.INTEGER,
       references: {
         model: "users",
         key: "id",
       },
+      allowNull: true,
     },
-    name: {
+    firstName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    lastName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    email: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+      validate: {
+        isEmail: true,
+      },
+    },
+    pet_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -21,7 +40,7 @@ Pets.init(
     },
     breed: {
       type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     allergies: {
       type: DataTypes.STRING,
@@ -43,13 +62,17 @@ Pets.init(
       type: DataTypes.ENUM(["male", "female"]),
       allowNull: false,
     },
+    concern: {
+      type: DataTypes.TEXT,
+      allowNull: false,
+    },
   },
   {
     sequelize,
     timestamps: false,
     freezeTableName: true,
-    modelName: "pets",
+    modelName: "appointments",
   }
 );
 
-module.exports = Pets;
+module.exports = Appointments;

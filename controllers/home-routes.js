@@ -14,6 +14,16 @@ router.get('/', async (req, res) => {
     }
 })
 
+// GET the new user form after signing up
+router.get('/new-pet-form', async (req, res) => {
+    try {
+      res.render('new-pet-form');
+    } catch {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
+  
 // Login route
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {

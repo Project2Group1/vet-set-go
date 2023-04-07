@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { Topics, Users, Comments } = require('../../models');
-const withAuth = require('../../utis/auth');
+const withAuth = require('../../utils/auth');
 
 // get route to find all posts created
 router.get('/', async (req, res) => {
