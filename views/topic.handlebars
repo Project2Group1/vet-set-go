@@ -12,7 +12,10 @@
             <p class="is-size-5 px-2">{{descriptionText}}</p>
         </div>
     </section>
-    <section id="comments-section">
+    <div class="pr-2 m-3 level-right">
+        <button class="button mt-2 is-primary" type="submit" id="delete-btn">Delete Post</button>
+    </div>
+    <section class="" id="comments-section">
         <h2 class="is-size-4 p-2 mx-3">Comments:</h2>
         {{#each comments as |comment|}}
             <section class="card p-2 mx-3">
@@ -21,7 +24,7 @@
                         <header>{{comment.commentText}}</header>
                     </div>
                     <div class="level-right pl-2">
-                        <p class="is-italic">Commented by</p>
+                        <p class="is-italic">Commented by {{comment.user.firstName}} {{comment.user.lastName}}</p>
                     </div>
                 </div>
             </section>
@@ -29,10 +32,11 @@
          <section class="card p-2 mx-3">
             <form class="comment-form p-2">
                 <input class="input is-normal" type="text" id="comment-input" placeholder="Leave a comment"/>
-                <button class="button is-info is-small mt-2" type="submit" id="comment-btn">Comment</button>
+                <button class="button is-primary is-small mt-2" type="submit" id="comment-btn">Comment</button>
             </form>
         </section>
     </section>
+    <a class="p-2 mx-3" href="/api/forums">Back to forums</a>
 </div>
 
 <script src="/js/comment.js"></script>
