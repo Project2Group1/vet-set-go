@@ -17,15 +17,14 @@ router.post('/', async (req, res) => {
       req.session.user_id = dbUserData.id;
       res.status(200).json(dbUserData);
     });
+
     console.log(req.session)
+    
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
-
-// CREATE new user profile
-
 
 // Login
 router.post('/login', async (req, res) => {
