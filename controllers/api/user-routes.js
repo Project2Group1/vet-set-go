@@ -24,6 +24,9 @@ router.post('/', async (req, res) => {
   }
 });
 
+// CREATE new user profile
+
+
 // Login
 router.post('/login', async (req, res) => {
   try {

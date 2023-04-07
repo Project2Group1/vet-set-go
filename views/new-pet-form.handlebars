@@ -1,0 +1,157 @@
+<h2>PET INFORMATION</h2>
+{{!-- Pet's name --}}
+<div class="field is-horizontal">
+    <div class="field-label is-normal">
+        <label class="label">Pet's name</label>
+    </div>
+    <div class="field-body">
+        <div class="field">
+            <p class="control is-expanded has-icons-left">
+                <input class="input" type="text" placeholder="Name">
+                <span class="icon is-small is-left">
+                    <i class="fa-solid fa-paw"></i> </span>
+            </p>
+            {{!-- <p class="help is-danger">
+                This field is required
+            </p> --}}
+        </div>
+    </div>
+</div>
+{{!-- DOB --}}
+<div class="field is-horizontal">
+    <div class="field-label is-normal">
+        <label class="label">Date of birth</label>
+    </div>
+    <div class="field-body">
+        <div class="field">
+            <p class="control">
+                <input id="DOB" type="date">
+            </p>
+        </div>
+    </div>
+</div>
+{{!-- Animal type --}}
+<div class="field is-horizontal">
+    <div class="field-label is-normal">
+        <label class="label">Animal type</label>
+    </div>
+    <div class="field-body">
+        <div class="field is-narrow">
+            <div class="control">
+                <div class="select is-fullwidth">
+                    <select>
+                        <option value="">Select one option</option>
+                        <option>Bird</option>
+                        <option>Cat</option>
+                        <option>Dog</option>
+                        <option>Fish</option>
+                        <option>Reptile</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- Breed --}}
+<div class="field is-horizontal">
+    <div class="field-label is-normal">
+        <label class="label">Breed</label>
+    </div>
+    <div class="field-body">
+        <div class="field">
+            <div class="control">
+                <input class="input" type="text" placeholder="e.g. poodle, cockatoo, Maine Coon">
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- Sex --}}
+<div class="field is-horizontal">
+    <div class="field-label">
+        <label class="label">What is your pet's gender?</label>
+    </div>
+    <div class="field-body">
+        <div class="field is-narrow">
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox" name="male">
+                    Male
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" name="female">
+                    Female
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- Vaccinations --}}
+<div class="field is-horizontal">
+    <div class="field-label">
+        <label class="label">Is your pet vaccinated?</label>
+    </div>
+    <div class="field-body">
+        <div class="field is-narrow">
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox" name="yes">
+                    Yes
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" name="no">
+                    No
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- Neutered or spayed --}}
+<div class="field is-horizontal">
+    <div class="field-label">
+        <label class="label">Is your pet neutered or spayed?</label>
+    </div>
+    <div class="field-body">
+        <div class="field is-narrow">
+            <div class="control">
+                <label class="checkbox">
+                    <input type="checkbox" name="yes">
+                    Yes
+                </label>
+                <label class="checkbox">
+                    <input type="checkbox" name="no">
+                    No
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- Allergies --}}
+<div class="field is-horizontal">
+    <div class="field-label is-normal">
+        <label class="label">Allergies</label>
+    </div>
+    <div class="field-body">
+        <div class="field">
+            <div class="control">
+                <input class="input" type="text" placeholder="e.g. beef, blueberries">
+            </div>
+        </div>
+    </div>
+</div>
+{{!-- Submit button --}}
+<div class="field is-horizontal">
+    <div class="field-label">
+    </div>
+    <div class="field-body">
+        <div class="field">
+            <div class="control">
+                <button class="button is-primary">
+                    Submit
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/js/new-pet.js"></script>
