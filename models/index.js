@@ -11,14 +11,28 @@ Pets.belongsTo(Users);
 Pets.hasMany(Records);
 Records.belongsTo(Pets);
 
-Users.hasMany(Topics);
-Topics.belongsTo(Users);
+Users.hasMany(Topics, {
+  foreignKey: 'user_id',
+});
 
-Users.hasMany(Comments);
-Comments.belongsTo(Users);
+Topics.belongsTo(Users, {
+  foreignKey: 'user_id',
+});
 
-Topics.hasMany(Comments);
-Comments.belongsTo(Topics);
+Users.hasMany(Comments, {
+  foreignKey: 'user_id',
+});
+Comments.belongsTo(Users, {
+  foreignKey: 'user_id',
+});
+
+Topics.hasMany(Comments, {
+    foreignKey: 'topics_id',
+});
+
+Comments.belongsTo(Topics, {
+    foreignKey: 'topics_id',
+});
 
 Users.hasMany(Appointments);
 Appointments.belongsTo(Users);

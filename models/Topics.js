@@ -1,6 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 
-const sequelize = require('../config/connection.js');
+const sequelize = require('../config/connection');
 
 class Topics extends Model {}
 
@@ -14,6 +14,11 @@ Topics.init(
           },
 
           titleText: {
+            type: DataTypes.TEXT,
+            allowNull: false
+          },
+
+          descriptionText: {
             type: DataTypes.TEXT,
             allowNull: false
           },

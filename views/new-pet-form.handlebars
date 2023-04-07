@@ -1,0 +1,192 @@
+<h2>PET INFORMATION</h2>
+<form class="newPet-form">
+    {{!-- Pet's name --}}
+    <div class="field is-horizontal">
+        <div class="field-label is-normal">
+            <label class="label">Pet's name</label>
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <p class="control is-expanded has-icons-left">
+                    <input id="name-newPet" class="input" type="text" placeholder="Name">
+                    <span class="icon is-small is-left">
+                        <i class="fa-solid fa-paw"></i> </span>
+                </p>
+                <div id="no-name" hidden>
+                    <p class="help is-danger">
+                        This field is required
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{!-- DOB --}}
+    <div class="field is-horizontal">
+        <div class="field-label is-normal">
+            <label class="label">Date of birth</label>
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <p class="control">
+                    <input id="DOB-newPet" type="date">
+                </p>
+                <div id="no-DOB" hidden>
+                    <p class="help is-danger">
+                        This field is required
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    {{!-- Animal type --}}
+    <div class="field is-horizontal">
+        <div class="field-label is-normal">
+            <label class="label">Animal type</label>
+        </div>
+        <div class="field-body">
+            <div class="field is-narrow">
+                <div class="control">
+                    <div id="petType-newPet" class="select is-fullwidth">
+                        <select>
+                            <option value="">Select one option</option>
+                            <option value="bird">Bird</option>
+                            <option value="cat">Cat</option>
+                            <option value="dog">Dog</option>
+                            <option value="fish">Fish</option>
+                            <option value="reptile">Reptile</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div id="no-type" hidden>
+                        <p class="help is-danger">
+                            This field is required
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{!-- Breed --}}
+    <div class="field is-horizontal">
+        <div class="field-label is-normal">
+            <label class="label">Breed</label>
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <div class="control">
+                    <input id="breed-newPet" class="input" type="text" placeholder="e.g. poodle, cockatoo, Maine Coon">
+                </div>
+                <div id="no-breed" hidden>
+                    <p class="help is-danger">
+                        This field is required
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{!-- Sex --}}
+    <div class="field is-horizontal">
+        <div class="field-label">
+            <label class="label">What is your pet's gender?</label>
+        </div>
+        <div class="field-body">
+            <div class="field is-narrow">
+                <div id="sex-newPet" class="control">
+                    <label class="radio">
+                        <input type="radio" name="sex-newPet" value="male">
+                        Male
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="sex-newPet" value="female">
+                        Female
+                    </label>
+                </div>
+                <div id="no-sex" hidden>
+                    <p class="help is-danger">
+                        This field is required
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{!-- Vaccinations --}}
+    <div class="field is-horizontal">
+        <div class="field-label">
+            <label class="label">Is your pet vaccinated?</label>
+        </div>
+        <div class="field-body">
+            <div class="field is-narrow">
+                <div id="vaccinations-newPet" class="control">
+                    <label class="radio">
+                        <input type="radio" name="vaccinations-newPet" value="yes">
+                        Yes
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="vaccinations-newPet" value="no">
+                        No
+                    </label>
+                    <div id="no-vaccinations" hidden>
+                        <p class="help is-danger">
+                            This field is required
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{!-- Neutered or spayed --}}
+    <div class="field is-horizontal">
+        <div class="field-label">
+            <label class="label">Is your pet neutered or spayed?</label>
+        </div>
+        <div class="field-body">
+            <div class="field is-narrow">
+                <div id="isNeuteredOrSpayed-newPet" class="control">
+                    <label class="radio">
+                        <input type="radio" name="isNeuteredOrSpayed-newPet" value="yes">
+                        Yes
+                    </label>
+                    <label class="radio">
+                        <input type="radio" name="isNeuteredOrSpayed-newPet" value="no">
+                        No
+                    </label>
+                    <div id="no-neutered" hidden>
+                        <p class="help is-danger">
+                            This field is required
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{!-- Allergies --}}
+    <div class="field is-horizontal">
+        <div class="field-label is-normal">
+            <label class="label">Allergies</label>
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <div class="control">
+                    <input id="allergies-newPet" class="input" type="text" placeholder="e.g. beef, blueberries">
+                </div>
+            </div>
+        </div>
+    </div>
+    {{!-- Submit button --}}
+    <div class="field is-horizontal">
+        <div class="field-label">
+        </div>
+        <div class="field-body">
+            <div class="field">
+                <div class="control">
+                    <button type="submit" class="button is-primary">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<script src="/js/new-pet.js"></script>

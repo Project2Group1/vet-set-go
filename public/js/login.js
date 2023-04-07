@@ -21,13 +21,22 @@ const loginFormHandler = async (event) => {
 
 const signupFormHandler = async (event) => {
     event.preventDefault();
+    resetValidation();
 
     const firstName = document.querySelector('#firstName-signup').value.trim();
     const lastName = document.querySelector('#lastName-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
 
-    if (firstName && lastName && email && password) {
+    if (firstName.length === 0) {
+        document.querySelector('#no-firstName').removeAttribute("hidden");
+    } else if (lastName.length === 0) {
+        document.querySelector('#no-lastName').removeAttribute("hidden");
+    } else if (email.length === 0) {
+        document.querySelector('#no-email').removeAttribute("hidden");
+    } else if (password.length < 8) {
+        document.querySelector('#short-password').removeAttribute("hidden");
+    } else {
         const response = await fetch('/api/users', {
             method: 'POST',
             body: JSON.stringify({ firstName, lastName, email, password }),
@@ -35,12 +44,19 @@ const signupFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            document.location.replace('/');
+            document.location.replace('/new-pet-form');
         } else {
             alert('Failed to sign up.');
         }
     }
 };
+
+function resetValidation() {
+    document.querySelector('#no-firstName').setAttribute("hidden", "hidden");
+    document.querySelector('#no-lastName').setAttribute("hidden", "hidden");
+    document.querySelector('#no-email').setAttribute("hidden", "hidden");
+    document.querySelector('#short-password').setAttribute("hidden", "hidden");
+}
 
 document
     .querySelector('.login-form')
