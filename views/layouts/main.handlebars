@@ -27,6 +27,11 @@
                 </li>
                 <li>
                     {{#if loggedIn}}
+                    <a href="/profile">Your Profile</a>
+                    {{/if}}
+                </li>
+                <li>
+                    {{#if loggedIn}}
                     <a id="logout">Logout</a>
                     {{else}}
                     <a href="/login">Login</a>

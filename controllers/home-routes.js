@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const { Users } = require('../models');
 
 // GET the homepage
 router.get('/', async (req, res) => {
@@ -14,16 +13,26 @@ router.get('/', async (req, res) => {
     }
 })
 
+// GET the user's profile
+router.get('/profile', async (req, res) => {
+    try {
+        res.render('profile');
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+})
+
 // GET the new user form after signing up
 router.get('/new-pet-form', async (req, res) => {
     try {
-      res.render('new-pet-form');
+        res.render('new-pet-form');
     } catch {
-      console.log(err);
-      res.status(500).json(err);
+        console.log(err);
+        res.status(500).json(err);
     }
-  });
-  
+});
+
 // Login route
 router.get('/login', (req, res) => {
     if (req.session.loggedIn) {
