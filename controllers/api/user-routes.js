@@ -28,12 +28,9 @@ router.post('/', async (req, res) => {
 });
 
 // GET the user's profile
-router.get('/profile/:id', withAuth, async (req, res) => {
+router.get('/profile', withAuth, async (req, res) => {
   try {
-    const profileData = await Users.findOne({
-      where: {
-        id: req.params.id,
-      },
+    const profileData = await Users.findByPk(req.session.user_id, {
       include: [{ model: Pets }],
     })
     console.log(profileData)
@@ -41,7 +38,7 @@ router.get('/profile/:id', withAuth, async (req, res) => {
 
     const petData = await Pets.findAll({
       where: {
-        owner_id: req.params.id,
+        owner_id: req.session.user_id,
       }
     })
     const pets = petData.map((pet) =>
