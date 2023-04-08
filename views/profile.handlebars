@@ -1,1 +1,12 @@
 <h1>PROFILE</h1>
+
+<figure class="image is-128x128">
+  <img class="is-rounded" src="/images/blank_profile_picture.jpg">
+</figure>
+
+<h3>Welcome back, {{ firstName }}</h3>
+
+<h5>Select a pet:</h5>
+{{#each pets as |pet|}}
+<p>{{name}}</p>
+{{/each}}

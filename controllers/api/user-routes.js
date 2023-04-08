@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const session = require('express-session');
-const { Users } = require('../../models');
+const withAuth = require('../../utils/auth');
+const { Users, Pets, Records } = require('../../models');
 
 // CREATE new user
 router.post('/', async (req, res) => {
@@ -19,12 +20,44 @@ router.post('/', async (req, res) => {
     });
 
     console.log(req.session)
-    
+
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
+
+// GET the user's profile
+router.get('/profile/:id', withAuth, async (req, res) => {
+  try {
+    const profileData = await Users.findOne({
+      where: {
+        id: req.params.id,
+      },
+      include: [{ model: Pets }],
+    })
+    console.log(profileData)
+    const profile = profileData.get({ plain: true });
+
+    const petData = await Pets.findAll({
+      where: {
+        owner_id: req.params.id,
+      }
+    })
+    const pets = petData.map((pet) =>
+      pet.get({ plain: true })
+    );
+
+    res.render('profile', {
+      profile,
+      pets,
+    });
+
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
 
 // Login
 router.post('/login', async (req, res) => {

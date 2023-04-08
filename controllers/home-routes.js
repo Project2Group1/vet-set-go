@@ -13,16 +13,6 @@ router.get('/', async (req, res) => {
     }
 })
 
-// GET the user's profile
-router.get('/profile', async (req, res) => {
-    try {
-        res.render('profile');
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-    }
-})
-
 // GET the new user form after signing up
 router.get('/new-pet-form', async (req, res) => {
     try {
