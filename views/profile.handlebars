@@ -1,25 +1,26 @@
 {{!-- Owner profile --}}
-<section class="">
-  <h1>PROFILE</h1>
-
-  <figure class="image is-128x128">
-    <img class="is-rounded" src="/images/blank_profile_picture.jpg">
-  </figure>
-
-  <h3>Welcome back, {{ firstName }}</h3>
-
-  <h5>Select a pet:</h5>
+<section>
+  <div class="container is-fluid content is-large">
+    <div class="has-text-centered">
+      {{!-- <figure class="image is-128x128">
+        <img class="is-rounded" src="/images/blank_profile_picture.jpg">
+      </figure> --}}
+      <h3>Welcome back, {{ profile.firstName }}</h3>
+      <h5>Select a pet:</h5>
+    </div>
+  </div>
+  </div>
 </section>
-
+<br>
 {{!-- Pet names --}}
-<section class="">
-  <div class="tabs is-centered">
+<section>
+  <div class="tabs is-centered is-large is-toggle is-toggle-rounded">
     <ul>
       {{#each pets as |pet|}}
-      <li>
-        <a>
+      <li data-id="{{id}}">
+        <a class="pet-tab" href="#">
           <span class="icon is-small">
-            <i data-type="petType" class="{{petType}} fas fa-music" aria-hidden="true"></i>
+            <i data-id="{{id}}" data-type="petType" class="{{petType}} fas fa-music" aria-hidden="true"></i>
           </span>
           <span>{{name}}</span>
         </a>
@@ -27,6 +28,22 @@
       {{/each}}
     </ul>
   </div>
+  <div id="tab-content">
+    <div id="tab" hidden>
+      <p id="birthday">Birthday</p>
+      <p id="petType">petType</p>
+      <p id="breed">breed</p>
+      <p id="sex">sex</p>
+      <p id="allergies">allergies</p>
+      <p id="vaccinated">vaccinated</p>
+      <p id="isNeuteredOrSpayed">isNeuteredOrSpayed</p>
+      <h5 id="lastRecord">Details recorded during your last appointment on <span id="lastAppointment">lastAppointment</span>: </h5>
+      <p id="weight">weight</p>
+      <p id="vetNotes">vetNotes</p>
+    </div>
+  </div>
 </section>
+
+{{!-- Pet profile / records --}}
 
 <script src="/js/profile.js"></script>

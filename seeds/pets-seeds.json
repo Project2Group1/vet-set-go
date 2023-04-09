@@ -1,0 +1,57 @@
+[
+    {
+        "owner_id": 1,
+        "name": "Fido",
+        "petType": "dog",
+        "breed": "Golden retrieve",
+        "allergies": "none",
+        "vaccinated": true,
+        "birthday": "2020-04-30",
+        "isNeuteredOrSpayed": true,
+        "sex": "male"
+    },
+    {
+        "owner_id": 1,
+        "name": "Whiskers",
+        "petType": "cat",
+        "breed": "Bengal cat",
+        "allergies": "nona",
+        "vaccinated": true,
+        "birthday": "2018-05-28",
+        "isNeuteredOrSpayed": false,
+        "sex": "female"
+    },
+    {
+        "owner_id": 2,
+        "name": "Mr. Floofy",
+        "petType": "bird",
+        "breed": "Cockatoo",
+        "allergies": "none",
+        "vaccinated": false,
+        "birthday": "2001-06-14",
+        "isNeuteredOrSpayed": false,
+        "sex": "male"
+    },
+    {
+        "owner_id": 3,
+        "name": "Mr. Clean",
+        "petType": "fish",
+        "breed": "goldfish",
+        "allergies": "none",
+        "vaccinated": false,
+        "birthday": "2023-01-20",
+        "isNeuteredOrSpayed": false,
+        "sex": "male"
+    },
+    {
+        "owner_id": 4,
+        "name": "Bellatrix",
+        "petType": "reptile",
+        "breed": "Western hognose",
+        "allergies": "none",
+        "vaccinated": false,
+        "birthday": "2022-12-01",
+        "isNeuteredOrSpayed": false,
+        "sex": "female"
+    }
+]

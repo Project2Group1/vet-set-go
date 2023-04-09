@@ -1,0 +1,32 @@
+[
+    {
+        "pet_id": 1,
+        "weight": 30,
+        "lastAppointment": "2022-11-05",
+        "vetNotes": "Fido is looking very healthy. I recommend increasing the frequency of getting his teeth cleaned to at least every other day."
+    },
+    {
+        "pet_id": 2,
+        "weight": 5.40,
+        "lastAppointment": "2021-02-10",
+        "vetNotes": "Nails trimmed during last visit."
+    },
+    {
+        "pet_id": 3,
+        "weight": 0.90,
+        "lastAppointment": "2023-02-02",
+        "vetNotes": "Mr. Floofy is looking great. Beak was trimmed under anesthesia due to overbite. Check how it is re-growing during next visit and book new trim if needed"
+    },
+    {
+        "pet_id": 4,
+        "weight": 0,
+        "lastAppointment": "2023-04-01",
+        "vetNotes": "Recommend quarantine protocol to get rid of pet-store parasites"
+    },
+    {
+        "pet_id": 5,
+        "weight": 1,
+        "lastAppointment": "2023-02-28",
+        "vetNotes": "Recommend owner sets up a humidifier in terrarium to aid shedding"
+    }
+]

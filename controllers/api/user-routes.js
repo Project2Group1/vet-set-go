@@ -32,15 +32,15 @@ router.get('/profile', withAuth, async (req, res) => {
   try {
     const profileData = await Users.findByPk(req.session.user_id, {
       include: [{ model: Pets }],
-    })
-    console.log(profileData)
-    const profile = profileData.get({ plain: true });
+    });
 
     const petData = await Pets.findAll({
       where: {
         owner_id: req.session.user_id,
       }
-    })
+    });
+
+    const profile = profileData.get({ plain: true });
     const pets = petData.map((pet) =>
       pet.get({ plain: true })
     );
@@ -49,6 +49,26 @@ router.get('/profile', withAuth, async (req, res) => {
       profile,
       pets,
     });
+
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+})
+
+// GET pet's records
+router.get('/profile/pets/:id', withAuth, async (req, res) => {
+  try {
+    const recordsData = await Records.findAll({
+      where: {
+        pet_id: req.params.id,
+      },
+      include:
+        [{ model: Pets }],
+    });
+
+    console.log(recordsData)
+    res.status(200).json(recordsData);
 
   } catch (err) {
     console.log(err);
