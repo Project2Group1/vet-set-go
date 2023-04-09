@@ -28,22 +28,22 @@
       {{/each}}
     </ul>
   </div>
-  <div id="tab-content">
+  {{!-- Pet profile / records --}}
+  <div id="tab-content" class="has-text-centered">
     <div id="tab" hidden>
-      <p id="birthday">Birthday</p>
-      <p id="petType">petType</p>
-      <p id="breed">breed</p>
-      <p id="sex">sex</p>
-      <p id="allergies">allergies</p>
-      <p id="vaccinated">vaccinated</p>
-      <p id="isNeuteredOrSpayed">isNeuteredOrSpayed</p>
-      <h5 id="lastRecord">Details recorded during your last appointment on <span id="lastAppointment">lastAppointment</span>: </h5>
-      <p id="weight">weight</p>
-      <p id="vetNotes">vetNotes</p>
+      <h5>Birthday: <span id="birthday"> </span></h5>
+      <h5>Breed: <span id="breed"></span></h5>
+      <h5>Gender: <span id="sex"></span></h5>
+      <h5>Allergies: <span id="allergies"></span></h5>
+      <h5>Vaccinated: <span id="vaccinated"></span></h5>
+      <h5>Neutered or spayed: <span id="isNeuteredOrSpayed"></span></h5>
+      <h5 id="lastRecord">Details recorded during your last appointment on <span
+          id="lastAppointment">lastAppointment</span>: </h5>
+      <h5>Weight: <span id="weight"></span></h5>
+      <h5>Vet's notes: <span id="vetNotes"></span></h5>
     </div>
   </div>
 </section>
 
-{{!-- Pet profile / records --}}
 
 <script src="/js/profile.js"></script>

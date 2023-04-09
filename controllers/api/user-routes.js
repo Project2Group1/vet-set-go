@@ -62,13 +62,19 @@ router.get('/profile/pets/:id', withAuth, async (req, res) => {
     const recordsData = await Records.findAll({
       where: {
         pet_id: req.params.id,
-      },
-      include:
-        [{ model: Pets }],
+      }
     });
 
-    console.log(recordsData)
-    res.status(200).json(recordsData);
+    const petsData = await Pets.findAll({
+      where: {
+        id: req.params.id,
+      }
+    })
+
+    res.status(200).json({
+      records: recordsData[0],
+      petDetails: petsData[0] 
+    });
 
   } catch (err) {
     console.log(err);

@@ -35,19 +35,27 @@ const selectPetHandler = async (event) => {
     })
         .then(response => response.json())
 
-    console.log(response)
+    const petBirthday = new Date(response.petDetails.birthday);
+    const lastAppt = new Date(response.records.lastAppointment)
 
     document.querySelector("#tab").setAttribute("data-id", `${petId}`)
-    document.querySelector("#birthday").innerHTML = response[0].birthday
-    document.querySelector("#petType").innerHTML = response[0].petType
-    document.querySelector("#breed").innerHTML = response[0].breed
-    document.querySelector("#sex").innerHTML = response[0].sex
-    document.querySelector("#allergies").innerHTML = response[0].allergies
-    document.querySelector("#vaccinated").innerHTML = response[0].vaccinated
-    document.querySelector("#isNeuteredOrSpayed").innerHTML = response[0].isNeuteredOrSpayed
-    document.querySelector("#lastAppointment").innerHTML = response[0].lastAppointment
-    document.querySelector("#weight").innerHTML = `${response[0].weight} kg`
-    document.querySelector("#vetNotes").innerHTML = response[0].vetNotes
+    document.querySelector("#birthday").innerHTML = petBirthday.toLocaleDateString('en-us', { year:"numeric", month:"long", day:"numeric"});
+    document.querySelector("#breed").innerHTML = response.petDetails.breed
+    document.querySelector("#sex").innerHTML = response.petDetails.sex
+    document.querySelector("#allergies").innerHTML = response.petDetails.allergies
+    if (response.petDetails.vaccinated) {
+        document.querySelector("#vaccinated").innerHTML = "yes"
+    } else {
+        document.querySelector("#vaccinated").innerHTML = "no"
+    }
+    if (response.petDetails.isNeuteredOrSpayed) {
+        document.querySelector("#isNeuteredOrSpayed").innerHTML = "yes"
+    } else {
+        document.querySelector("#isNeuteredOrSpayed").innerHTML = "no"
+    }
+    document.querySelector("#lastAppointment").innerHTML = lastAppt.toLocaleDateString('en-us', { year:"numeric", month:"long", day:"numeric"});
+    document.querySelector("#weight").innerHTML = `${response.records.weight} kg`
+    document.querySelector("#vetNotes").innerHTML = response.records.vetNotes
     document.querySelector("#tab").removeAttribute("hidden")
 }
 
