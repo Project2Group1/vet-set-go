@@ -2,29 +2,85 @@
 <html lang="en">
 
 <head>
+    <!-- Basic settings for the HTML document -->
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vet-Set-Go</title>
+    <!-- Set the title of the page -->
+    <title>Vetset-Go</title>
+    <!-- Link to external CSS libraries -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link href="/css/bulma-calendar.min.css" rel="stylesheet">
+
+    <!-- Link to external JavaScript libraries and font icons -->
     <script src="https://kit.fontawesome.com/bc80d4a5ca.js" crossorigin="anonymous"></script>
     <script src="/js/bulma-calendar.min.js"></script>
 </head>
 
 <body>
-
+    <!-- Header section with hero class -->
+    <header class="hero is-primary is-bold">
+        <div class="hero-body">
+            <div class="container">
+                <div class="columns is-vcentered">
+                    <div class="column">
+                        <!-- Website title -->
+                        <h1 class="title">Vetset Go</h1>
+                    </div>
+                    <div class="column is-narrow">
+                        <!-- Navigation buttons -->
+                        <div class="buttons is-right">
+                            <ul>
+                                <li>
+                                    <a href="/">Home</a>
+                                </li>
+                                <li>
+                                    <a href="/forum">Forum</a>
+                                </li>
+                                <li>
+                                    <!-- Conditional rendering based on user login status -->
+                                    {{#if loggedIn}}
+                                    <a href="/logout" id="logout-button" class="button is-light">Log Out</a>
+                                    {{else}}
+                                    <a href="/login" id="login-button" class="button is-light">Log In</a>
+                                    {{/if}}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Main navigation menu -->
     <nav>
-        <ahref=" /">
+
+<ahref=" /">
             <h1>Welcome to our clinic</h1>
 
             </a>
-            <ul>
-                <li>
+        <ul>
+        <li>
                     <a href="/">Home</a>
                 </li>
                 <li>
                     <a href="/forum">Forum</a>
+                </li>
+            <li>
+                <a href="#/contact">Contact Us</a>
+            </li>
+            <li>
+                <!-- Conditional rendering based on user login status -->
+                {{#if loggedIn}}
+                <a href="/client-appointment">Book an Appointment</a>
+                {{else}}
+                <a href="/appointment">Book an Appointment</a>
+                {{/if}}
+            </li>
+            <li>
+                    {{#if loggedIn}}
+                    <a href="/api/users/profile">Your Profile</a>
+                    {{/if}}
                 </li>
                 <li>
                     {{#if loggedIn}}
@@ -33,35 +89,32 @@
                     <a href="/login">Login</a>
                     {{/if}}
                 </li>
-                <li>
-                    <a href="#/contact">Contact Us</a>
-                </li>
-                <li>
-                    {{#if loggedIn}}
-                    <a href="/client-appointment">Book an Appointment</a>
-                    {{else}}
-                    <a href="/appointment">Book an Appointment</a>
-                    {{/if}}
-                </li>
-                <li>
-                    {{#if loggedIn}}
-                    <a href="/api/users/profile">Your Profile</a>
-                    {{/if}}
-                </li>
             </ul>
 
     </nav>
 
+    <!-- Main content section -->
     <main>
-
+        <!-- Inject the content from the template's body -->
         {{{ body }}}
-
     </main>
 
+    <!-- Conditional rendering of logout script -->
     {{#if loggedIn}}
     <script src="/js/logout.js"></script>
     {{/if}}
 
+    <!-- Footer section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="content has-text-centered">
+                <p>
+                    <!-- Footer text and copyright information -->
+                    <strong>Vetset Go</strong> &copy; 2023. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
