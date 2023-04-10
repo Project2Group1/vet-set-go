@@ -1,5 +1,5 @@
-{{!-- Owner profile --}}
 <div class="container box p-6 has-background-light">
+  {{!-- Owner profile --}}
   <h1 class="title has-text-centered has-text-success">
     Welcome back, {{ profile.firstName }}
   </h1>
@@ -26,9 +26,11 @@
     {{!-- Pet profile / records --}}
     <div id="tab-content" class="has-text-centered">
       <div id="tab" hidden>
+        {{!-- Pet image --}}
         <figure class="image is-128x128">
           <img class="is-rounded">
         </figure>
+        {{!-- Image upload --}}
         <div class="file has-name is-small">
           <label class="file-label">
             <input class="file-input" type="file" accept=".jpeg, .jpg, .tiff, .png, .gif" name="petPhoto">
@@ -45,19 +47,27 @@
             <button id="photo-upload" type="submit" class="button is-primary is-small">Upload</button>
           </label>
         </div>
-        <h5>Birthday: <span id="birthday"> </span></h5>
-        <h5>Breed: <span id="breed"></span></h5>
-        <h5>Gender: <span id="sex"></span></h5>
-        <h5>Allergies: <span id="allergies"></span></h5>
-        <h5>Vaccinated: <span id="vaccinated"></span></h5>
-        <h5>Neutered or spayed: <span id="isNeuteredOrSpayed"></span></h5>
-        <h5 id="lastRecord">Details recorded during your last appointment on <span
-            id="lastAppointment">lastAppointment</span>: </h5>
-        <h5>Weight: <span id="weight"></span></h5>
-        <h5>Vet's notes: <span id="vetNotes"></span></h5>
+        {{!-- Pet info --}}
+        <div>
+          <h5>Birthday: <span id="birthday"> </span></h5>
+          <h5>Breed: <span id="breed"></span></h5>
+          <h5>Gender: <span id="sex"></span></h5>
+          <h5>Allergies: <span id="allergies"></span></h5>
+          <h5>Vaccinated: <span id="vaccinated"></span></h5>
+          <h5>Neutered or spayed: <span id="isNeuteredOrSpayed"></span></h5>
+          <h5 id="lastRecord">Details recorded during your last appointment on <span
+              id="lastAppointment">lastAppointment</span>: </h5>
+          <h5>Weight: <span id="weight"></span></h5>
+          <h5>Vet's notes: <span id="vetNotes"></span></h5>
+        </div>
+        {{!-- Delete button --}}
+        <div class="buttons">
+          <button id="delete-btn" type="submit" class="button is-danger is-light is-small">Delete this pet</button>
+        </div>
       </div>
     </div>
   </section>
+  {{!-- Delete / add a pet --}}
   <div class="buttons">
     <a href="/new-pet-form" class="button is-primary">Add a new pet</a>
   </div>

@@ -27,6 +27,23 @@ router.post('/', async (req, res) => {
     }
 });
 
+// DELETE a pet profile
+router.delete('/:id', async (req, res) => {
+    try {
+        const deletePetData = await Pets.destroy({
+            where: {
+                id: req.params.id,
+            },
+        });
+
+        res.status(200).json(deletePetData);
+
+    } catch (err) {
+        console.log(err);
+        res.status(500).json(err);
+    }
+})
+
 // UPLOAD a new pet photo
 router.put('/photo', async (req, res) => {
     try {

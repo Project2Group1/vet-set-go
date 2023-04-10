@@ -5,10 +5,16 @@ const Comments = require("./Comments");
 const Pets = require("./Pets");
 const Appointments = require("./Appointments");
 
-Users.hasMany(Pets);
+Users.hasMany(Pets, {
+  foreignKey: 'owner_id',
+  onDelete: 'CASCADE'
+});
 Pets.belongsTo(Users);
 
-Pets.hasMany(Records);
+Pets.hasMany(Records, {
+  foreignKey: 'pet_id',
+  onDelete: 'CASCADE'
+});
 Records.belongsTo(Pets);
 
 Users.hasMany(Topics, {
