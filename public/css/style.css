@@ -1,0 +1,71 @@
+/* Custom styles for Vetset Go */
+
+/* Base styles */
+html, body {
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Hero section */
+.hero.is-primary.is-bold {
+  background: linear-gradient(135deg, #2d9fd9 0%, #2d9fd9 50%, #4b4d7c 50%, #4b4d7c 100%);
+}
+
+/* About section */
+#about {
+  margin-top: 2rem;
+}
+
+/* Announcements and Forum section */
+.section ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.section .content {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 1rem;
+}
+
+.section .date {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #2d9fd9;
+}
+
+/* Services section */
+.carousel {
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  margin: 2rem 0;
+}
+
+.carousel-item {
+  display: none;
+  flex-shrink: 0;
+  width: 100%;
+}
+
+.carousel-item.is-active {
+  display: block;
+}
+
+/* Meet the team section */
+#team {
+  margin-top: 2rem;
+}
+
+.card {
+  height: 100%;
+}
+
+.card .card-image img {
+  object-fit: cover;
+}
+
+/* Contact Us section */
+#contact {
+  margin-top: 2rem;
+}
