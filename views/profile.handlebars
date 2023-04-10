@@ -11,9 +11,8 @@
   </div>
   </div>
 </section>
-<br>
-{{!-- Pet names --}}
 <section>
+  {{!-- Pet names --}}
   <div class="tabs is-centered is-large is-toggle is-toggle-rounded">
     <ul>
       {{#each pets as |pet|}}
@@ -31,6 +30,25 @@
   {{!-- Pet profile / records --}}
   <div id="tab-content" class="has-text-centered">
     <div id="tab" hidden>
+      <figure class="image is-128x128">
+        <img class="is-rounded">
+      </figure>
+      <div class="file has-name is-small">
+        <label class="file-label">
+          <input class="file-input" type="file" accept=".jpeg, .jpg, .tiff, .png, .gif" name="petPhoto">
+          <span class="file-cta">
+            <span class="file-icon">
+              <i class="fas fa-upload"></i>
+            </span>
+            <span class="file-label">
+              Choose a photo
+            </span>
+          </span>
+          <span class="file-name">
+          </span>
+          <button id="photo-upload" type="submit" class="button is-primary is-small">Upload</button>
+        </label>
+      </div>
       <h5>Birthday: <span id="birthday"> </span></h5>
       <h5>Breed: <span id="breed"></span></h5>
       <h5>Gender: <span id="sex"></span></h5>
