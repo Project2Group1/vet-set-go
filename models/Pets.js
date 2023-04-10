@@ -43,6 +43,10 @@ Pets.init(
       type: DataTypes.ENUM(["male", "female"]),
       allowNull: false,
     },
+    photoURL: {
+      type: DataTypes.STRING,
+      allowNull: true,
+    }
   },
   {
     sequelize,
