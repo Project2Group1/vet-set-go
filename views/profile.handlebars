@@ -1,0 +1,49 @@
+{{!-- Owner profile --}}
+<section>
+  <div class="container is-fluid content is-large">
+    <div class="has-text-centered">
+      {{!-- <figure class="image is-128x128">
+        <img class="is-rounded" src="/images/blank_profile_picture.jpg">
+      </figure> --}}
+      <h3>Welcome back, {{ profile.firstName }}</h3>
+      <h5>Select a pet:</h5>
+    </div>
+  </div>
+  </div>
+</section>
+<br>
+{{!-- Pet names --}}
+<section>
+  <div class="tabs is-centered is-large is-toggle is-toggle-rounded">
+    <ul>
+      {{#each pets as |pet|}}
+      <li data-id="{{id}}">
+        <a class="pet-tab" href="#">
+          <span class="icon is-small">
+            <i data-id="{{id}}" data-type="petType" class="{{petType}} fas fa-music" aria-hidden="true"></i>
+          </span>
+          <span>{{name}}</span>
+        </a>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+  {{!-- Pet profile / records --}}
+  <div id="tab-content" class="has-text-centered">
+    <div id="tab" hidden>
+      <h5>Birthday: <span id="birthday"> </span></h5>
+      <h5>Breed: <span id="breed"></span></h5>
+      <h5>Gender: <span id="sex"></span></h5>
+      <h5>Allergies: <span id="allergies"></span></h5>
+      <h5>Vaccinated: <span id="vaccinated"></span></h5>
+      <h5>Neutered or spayed: <span id="isNeuteredOrSpayed"></span></h5>
+      <h5 id="lastRecord">Details recorded during your last appointment on <span
+          id="lastAppointment">lastAppointment</span>: </h5>
+      <h5>Weight: <span id="weight"></span></h5>
+      <h5>Vet's notes: <span id="vetNotes"></span></h5>
+    </div>
+  </div>
+</section>
+
+
+<script src="/js/profile.js"></script>
