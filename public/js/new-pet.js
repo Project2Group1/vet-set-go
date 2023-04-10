@@ -91,7 +91,7 @@ const newPetFormHandler = async (event) => {
 			});
 
 			if (response.ok) {
-				document.location.replace('/');
+				document.location.replace('/api/users/profile');
 			} else {
 				alert('Failed to submit new pet');
 			}
