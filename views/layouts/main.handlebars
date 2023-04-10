@@ -40,7 +40,7 @@
                                 <li>
                                     <!-- Conditional rendering based on user login status -->
                                     {{#if loggedIn}}
-                                    <a href="/logout" id="logout-button" class="button is-light">Log Out</a>
+                                    <a href="#" id="logout" class="button is-light">Log Out</a>
                                     {{else}}
                                     <a href="/login" id="login-button" class="button is-light">Log In</a>
                                     {{/if}}
@@ -54,18 +54,16 @@
     </header>
     <!-- Main navigation menu -->
     <nav>
-
-<ahref=" /">
+        <a href=" /">
             <h1>Welcome to our clinic</h1>
-
-            </a>
+        </a>
         <ul>
-        <li>
-                    <a href="/">Home</a>
-                </li>
-                <li>
-                    <a href="/forum">Forum</a>
-                </li>
+            <li>
+                <a href="/">Home</a>
+            </li>
+            <li>
+                <a href="/forum">Forum</a>
+            </li>
             <li>
                 <a href="#/contact">Contact Us</a>
             </li>
@@ -78,18 +76,18 @@
                 {{/if}}
             </li>
             <li>
-                    {{#if loggedIn}}
-                    <a href="/api/users/profile">Your Profile</a>
-                    {{/if}}
-                </li>
-                <li>
-                    {{#if loggedIn}}
-                    <a id="logout">Logout</a>
-                    {{else}}
-                    <a href="/login">Login</a>
-                    {{/if}}
-                </li>
-            </ul>
+                {{#if loggedIn}}
+                <a href="/api/users/profile">Your Profile</a>
+                {{/if}}
+            </li>
+            <li>
+                {{#if loggedIn}}
+                <a id="logout">Logout</a>
+                {{else}}
+                <a href="/login">Login</a>
+                {{/if}}
+            </li>
+        </ul>
 
     </nav>
 

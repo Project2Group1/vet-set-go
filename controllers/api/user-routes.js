@@ -48,6 +48,7 @@ router.get('/profile', withAuth, async (req, res) => {
     res.render('profile', {
       profile,
       pets,
+      loggedIn: req.session.loggedIn,
     });
 
   } catch (err) {

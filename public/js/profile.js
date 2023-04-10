@@ -40,9 +40,6 @@ const selectPetHandler = async (event) => {
     })
         .then(response => response.json())
 
-    const petBirthday = new Date(response.petDetails.birthday);
-    const lastAppt = new Date(response.records.lastAppointment)
-
     // Pet image
     if (response.petDetails.photoURL != null) {
         document.querySelector("img").setAttribute("src", `/images/uploads/${response.petDetails.photoURL}`)
@@ -58,14 +55,15 @@ const selectPetHandler = async (event) => {
         document.querySelector("img").setAttribute("src", "/images/placeholders/snake-placeholder.png")
     }
     // Add pet's id to upload image button
-    document.querySelector("#photo-upload").setAttribute("data-id", `${petId}`)
+    document.querySelector("#photo-upload").setAttribute("data-id", `${petId}`);
 
     // Pet's information
-    document.querySelector("#tab").setAttribute("data-id", `${petId}`)
+    document.querySelector("#tab").setAttribute("data-id", `${petId}`);
+    const petBirthday = new Date(response.petDetails.birthday);
     document.querySelector("#birthday").innerHTML = petBirthday.toLocaleDateString('en-us', { year: "numeric", month: "long", day: "numeric" });
-    document.querySelector("#breed").innerHTML = response.petDetails.breed
-    document.querySelector("#sex").innerHTML = response.petDetails.sex
-    document.querySelector("#allergies").innerHTML = response.petDetails.allergies
+    document.querySelector("#breed").innerHTML = response.petDetails.breed;
+    document.querySelector("#sex").innerHTML = response.petDetails.sex;
+    document.querySelector("#allergies").innerHTML = response.petDetails.allergies;
     if (response.petDetails.vaccinated) {
         document.querySelector("#vaccinated").innerHTML = "yes"
     } else {
@@ -76,12 +74,20 @@ const selectPetHandler = async (event) => {
     } else {
         document.querySelector("#isNeuteredOrSpayed").innerHTML = "no"
     }
-    document.querySelector("#lastAppointment").innerHTML = lastAppt.toLocaleDateString('en-us', { year: "numeric", month: "long", day: "numeric" });
-    document.querySelector("#weight").innerHTML = `${response.records.weight} kg`
-    document.querySelector("#vetNotes").innerHTML = response.records.vetNotes
-    document.querySelector("#tab").removeAttribute("hidden")
+    // If it's a new pet, there won't be any records associated with it
+    if (response.records === undefined) {
+        document.querySelector("#lastAppointment").innerHTML = "You haven't had any appointments yet";
+        document.querySelector("#weight").innerHTML = "Please come into the clinic so we can weigh your pet";
+        document.querySelector("#vetNotes").innerHTML = "Please make an appointment to see the vet";
+    } else {
+        const lastAppt = new Date(response.records.lastAppointment);
+        document.querySelector("#lastAppointment").innerHTML = lastAppt.toLocaleDateString('en-us', { year: "numeric", month: "long", day: "numeric" });
+        document.querySelector("#weight").innerHTML = `${response.records.weight} kg`;
+        document.querySelector("#vetNotes").innerHTML = response.records.vetNotes
+    }
+    document.querySelector("#tab").removeAttribute("hidden");
 
-    event.target.closest('li').setAttribute("class", "is-active")
+    event.target.closest('li').setAttribute("class", "is-active");
 }
 
 // Upload pet's image
@@ -102,7 +108,7 @@ const uploadPhotoHandler = async (event) => {
     })
 
     const json = await response.json()
-    
+
     document.querySelector("img").setAttribute("src", `/images/uploads/${json.photoURL}`)
 
     document.querySelector('.file-name').innerHTML = "";
