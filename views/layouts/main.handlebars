@@ -54,7 +54,18 @@
     </header>
     <!-- Main navigation menu -->
     <nav>
+
+<ahref=" /">
+            <h1>Welcome to our clinic</h1>
+
+            </a>
         <ul>
+        <li>
+                    <a href="/">Home</a>
+                </li>
+                <li>
+                    <a href="/forum">Forum</a>
+                </li>
             <li>
                 <a href="#/contact">Contact Us</a>
             </li>
@@ -70,8 +81,15 @@
                     {{#if loggedIn}}
                     <a href="/api/users/profile">Your Profile</a>
                     {{/if}}
-            </li>
-        </ul>
+                </li>
+                <li>
+                    {{#if loggedIn}}
+                    <a id="logout">Logout</a>
+                    {{else}}
+                    <a href="/login">Login</a>
+                    {{/if}}
+                </li>
+            </ul>
 
     </nav>
 

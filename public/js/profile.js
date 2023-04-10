@@ -1,3 +1,4 @@
+// Pet icon next to pet's name in tab section
 function petIcon() {
     const petType = document.querySelectorAll("[data-type*='petType']");
 
@@ -23,10 +24,14 @@ function petIcon() {
     }
 }
 
-petIcon();
-
+// Pet's records - shown only when pet name is clicked
 const selectPetHandler = async (event) => {
     event.preventDefault();
+    try {
+        document.querySelector(".is-active").removeAttribute("class");
+    } catch {
+        // This error happened because no tab is currently selected
+    }
 
     const petId = event.target.closest('li').getAttribute("data-id");
 
@@ -38,8 +43,26 @@ const selectPetHandler = async (event) => {
     const petBirthday = new Date(response.petDetails.birthday);
     const lastAppt = new Date(response.records.lastAppointment)
 
+    // Pet image
+    if (response.petDetails.photoURL != null) {
+        document.querySelector("img").setAttribute("src", `/images/uploads/${response.petDetails.photoURL}`)
+    } else if (response.petDetails.petType === "dog") {
+        document.querySelector("img").setAttribute("src", "/images/placeholders/dog-placeholder.png")
+    } else if (response.petDetails.petType === "cat") {
+        document.querySelector("img").setAttribute("src", "/images/placeholders/cat-placeholder.png")
+    } else if (response.petDetails.petType === "bird") {
+        document.querySelector("img").setAttribute("src", "/images/placeholders/bird-placeholder.png")
+    } else if (response.petDetails.petType === "fish") {
+        document.querySelector("img").setAttribute("src", "/images/placeholders/fish-placeholder.png")
+    } else if (response.petDetails.petType === "reptile") {
+        document.querySelector("img").setAttribute("src", "/images/placeholders/snake-placeholder.png")
+    }
+    // Add pet's id to upload image button
+    document.querySelector("#photo-upload").setAttribute("data-id", `${petId}`)
+
+    // Pet's information
     document.querySelector("#tab").setAttribute("data-id", `${petId}`)
-    document.querySelector("#birthday").innerHTML = petBirthday.toLocaleDateString('en-us', { year:"numeric", month:"long", day:"numeric"});
+    document.querySelector("#birthday").innerHTML = petBirthday.toLocaleDateString('en-us', { year: "numeric", month: "long", day: "numeric" });
     document.querySelector("#breed").innerHTML = response.petDetails.breed
     document.querySelector("#sex").innerHTML = response.petDetails.sex
     document.querySelector("#allergies").innerHTML = response.petDetails.allergies
@@ -53,14 +76,65 @@ const selectPetHandler = async (event) => {
     } else {
         document.querySelector("#isNeuteredOrSpayed").innerHTML = "no"
     }
-    document.querySelector("#lastAppointment").innerHTML = lastAppt.toLocaleDateString('en-us', { year:"numeric", month:"long", day:"numeric"});
+    document.querySelector("#lastAppointment").innerHTML = lastAppt.toLocaleDateString('en-us', { year: "numeric", month: "long", day: "numeric" });
     document.querySelector("#weight").innerHTML = `${response.records.weight} kg`
     document.querySelector("#vetNotes").innerHTML = response.records.vetNotes
     document.querySelector("#tab").removeAttribute("hidden")
+
+    event.target.closest('li').setAttribute("class", "is-active")
 }
 
-const allTabs = document.querySelectorAll('.pet-tab')
+// Upload pet's image
+const uploadPhotoHandler = async (event) => {
+    event.preventDefault();
+
+    var input = document.querySelector('input[type="file"]')
+    const petId = event.target.getAttribute("data-id");
+
+    var data = new FormData()
+
+    data.append('file', input.files[0])
+    data.append('petId', petId)
+
+    const response = await fetch('/api/pets/photo', {
+        method: 'PUT',
+        body: data
+    })
+
+    const json = await response.json()
+    
+    document.querySelector("img").setAttribute("src", `/images/uploads/${json.photoURL}`)
+
+    document.querySelector('.file-name').innerHTML = "";
+}
+
+petIcon();
+
+const allTabs = document.querySelectorAll('.pet-tab');
 
 for (let i = 0; i < allTabs.length; i++) {
     allTabs[i].addEventListener("click", selectPetHandler);
-}
+};
+
+document
+    .querySelector("#photo-upload")
+    .addEventListener("click", uploadPhotoHandler)
+
+
+// Event handlers to update file name field https://gist.github.com/micti/bca582bc4054ca7b034faea56930221c    
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Display file name when select file
+    let fileInputs = document.querySelectorAll('.file.has-name')
+    for (let fileInput of fileInputs) {
+        let input = fileInput.querySelector('.file-input')
+        let name = fileInput.querySelector('.file-name')
+        input.addEventListener('change', () => {
+            let files = input.files
+            if (files.length === 0) {
+                name.innerText = 'No file selected'
+            } else {
+                name.innerText = files[0].name
+            }
+        })
+    }
+})
