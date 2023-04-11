@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const session = require('express-session');
 const withAuth = require('../../utils/auth');
-const { Users, Pets, Records } = require('../../models');
+const { Users, Pets, Records, Topics } = require('../../models');
 
 // CREATE new user
 router.post('/', async (req, res) => {
@@ -40,14 +40,30 @@ router.get('/profile', withAuth, async (req, res) => {
       }
     });
 
+    const topicsData = await Topics.findAll({
+      where: {
+        user_id: req.session.user_id
+      },
+      include: [
+        {
+          model: Users,
+          attributes: ['firstName', 'lastName']
+        }
+      ]
+    });
+
     const profile = profileData.get({ plain: true });
     const pets = petData.map((pet) =>
       pet.get({ plain: true })
     );
+    const topics = topicsData.map((topic) => topic.get({
+			plain: true
+		}));
 
     res.render('profile', {
       profile,
       pets,
+      topics,
       loggedIn: req.session.loggedIn,
     });
 
@@ -55,7 +71,7 @@ router.get('/profile', withAuth, async (req, res) => {
     console.log(err);
     res.status(500).json(err);
   }
-})
+});
 
 // GET pet's records
 router.get('/profile/pets/:id', withAuth, async (req, res) => {

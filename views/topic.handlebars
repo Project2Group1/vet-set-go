@@ -20,11 +20,11 @@
         {{#each comments as |comment|}}
             <section class="card p-2 mx-3">
                 <div class="level pl-2">
-                    <div class="level-left">
+                    <div class="level-left is-size-5">
                         <header>{{comment.commentText}}</header>
                     </div>
                     <div class="level-right pl-2">
-                        <p class="is-italic">Commented by {{comment.user.firstName}} {{comment.user.lastName}}</p>
+                        <p class="is-italic is-size-6">Commented by {{comment.user.firstName}} {{comment.user.lastName}}</p>
                     </div>
                 </div>
             </section>
