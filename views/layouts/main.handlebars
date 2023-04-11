@@ -11,6 +11,7 @@
     <!-- Link to external CSS libraries -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link href="/css/bulma-calendar.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
 
     <!-- Link to external JavaScript libraries and font icons -->
     <script src="https://kit.fontawesome.com/bc80d4a5ca.js" crossorigin="anonymous"></script>
@@ -25,72 +26,29 @@
                 <div class="columns is-vcentered">
                     <div class="column">
                         <!-- Website title -->
-                        <h1 class="title">Vetset Go</h1>
+                        <a href="/" class="title">Vetset Go</a>
                     </div>
                     <div class="column is-narrow">
-                        <!-- Navigation buttons -->
-                        <div class="buttons is-right">
-                            <ul>
-                                <li>
-                                    <a href="/">Home</a>
-                                </li>
-                                <li>
-                                    <a href="/forum">Forum</a>
-                                </li>
-                                <li>
-                                    <!-- Conditional rendering based on user login status -->
-                                    {{#if loggedIn}}
-                                    <a href="#" id="logout" class="button is-light">Log Out</a>
-                                    {{else}}
-                                    <a href="/login" id="login-button" class="button is-light">Log In</a>
-                                    {{/if}}
-                                </li>
-                            </ul>
-                        </div>
+
+                        <!-- Conditional rendering based on user login status -->
+                        {{#if loggedIn}}
+                        <a href="/logout" id="logout-button" class="button is-light">Log Out</a>
+                        {{else}}
+                        <a href="/login" id="login-button" class="button is-light">Log In</a>
+                        {{/if}}
+                        </li>
+                        </ul>
+
+                        {{#if loggedIn}}
+                        <a href="/api/users/profile" id="profile-button" class="button is-light">Your Profile</a>
+                        {{/if}}
                     </div>
                 </div>
             </div>
         </div>
+        </div>
     </header>
-    <!-- Main navigation menu -->
-    <nav>
-        <a href=" /">
-            <h1>Welcome to our clinic</h1>
-        </a>
-        <ul>
-            <li>
-                <a href="/">Home</a>
-            </li>
-            <li>
-                <a href="/forum">Forum</a>
-            </li>
-            <li>
-                <a href="/contact">Contact Us</a>
-            </li>
-            <li>
-                <!-- Conditional rendering based on user login status -->
-                {{#if loggedIn}}
-                <a href="/client-appointment">Book an Appointment</a>
-                {{else}}
-                <a href="/appointment">Book an Appointment</a>
-                {{/if}}
-            </li>
-            <li>
-                {{#if loggedIn}}
-                <a href="/api/users/profile">Your Profile</a>
-                {{/if}}
-            </li>
-            <li>
-                {{#if loggedIn}}
-                <a id="logout">Logout</a>
-                {{else}}
-                <a href="/login">Login</a>
-                {{/if}}
-            </li>
-        </ul>
-
-    </nav>
-
+    
     <!-- Main content section -->
     <main>
         <!-- Inject the content from the template's body -->

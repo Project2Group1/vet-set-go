@@ -5,7 +5,11 @@
 				<div class="column">
 					<h2 class="title is-2">Welcome to Vetset Go</h2>
 					<h3 class="subtitle is-3">Your trusted source for all your pet care needs</h3>
-					<a href="/book-now" class="button">Book Now</a>
+					{{#if loggedIn}}
+					<a href="/client-appointment" class="button">Book Now</a>
+					{{else}}
+					<a href="/appointment" class="button">Book Now</a>
+					{{/if}}
 				</div>
 				<div class="column is-narrow">
 					<img src="https://via.placeholder.com/400x250" alt="Pet image">
@@ -56,7 +60,8 @@
 					<figure class="image is-3by2">
 						<img src="https://via.placeholder.com/640x480" alt="Forum Image">
 					</figure>
-					<a href="/views/forums.handlebars" class="button is-large is-fullwidth is-primary">Join Now</a>
+					<a href="/api/forums" class="button is-large is-fullwidth is-primary">Join Now</a>
+
 				</div>
 			</div>
 		</div>
@@ -145,7 +150,7 @@
 			<div class="container has-text-centered">
 				<h2 class="title is-2">Get in Touch</h2>
 				<p>Have any questions or concerns? Feel free to reach out to us.</p>
-				<a href="/contact" class="button is-medium is-light mt-4">Contact Us</a>
+				<a href="/views/contact.handlebars" class="button is-medium is-light mt-4">Contact Us</a>
 			</div>
 		</div>
 	</section>
