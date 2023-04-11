@@ -182,9 +182,9 @@ const guestFormHandler = async (event) => {
 
 document
   .querySelector(".guest-form")
-  .addEventListener("submit", guestFormHandler)
-  .addEventListener("DOMContentLoaded", getPets);
+  .addEventListener("submit", guestFormHandler);
 
 document
   .querySelector(".client-form")
-  .addEventListener("submit", clientFormHandler);
+  .addEventListener("submit", clientFormHandler)
+  .addEventListener("DOMContentLoaded", getPets);
