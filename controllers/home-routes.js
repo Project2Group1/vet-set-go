@@ -78,7 +78,7 @@ router.get("/guest-appointment", async (req, res) => {
 });
 
 // GET the appointments login page
-router.get("/appointment-gate", async (req, res) => {
+router.get("/appointment", async (req, res) => {
   try {
     res.render("appointment-gate", {
       user_id: req.session.user_id,
