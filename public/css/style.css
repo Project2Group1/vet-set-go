@@ -1,15 +1,20 @@
 /* Custom styles for Vetset Go */
 
 /* Base styles */
-html, body {
-  font-family: 'Roboto', sans-serif;
-  margin: 0;
-  padding: 0;
+html,
+body {
+  font-family: "Roboto", sans-serif;
 }
 
 /* Hero section */
 .hero.is-primary.is-bold {
-  background: linear-gradient(135deg, #2d9fd9 0%, #2d9fd9 50%, #4b4d7c 50%, #4b4d7c 100%);
+  background: linear-gradient(
+    135deg,
+    #2d9fd9 0%,
+    #2d9fd9 50%,
+    #4b4d7c 50%,
+    #4b4d7c 100%
+  );
 }
 
 .hero-image {
@@ -81,4 +86,8 @@ html, body {
 
 .service-item:hover {
   transform: translateY(-10px);
+  
+/* Map styling */
+#map {
+  height: 100%;
 }

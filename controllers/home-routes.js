@@ -1,5 +1,4 @@
-const router = require('express').Router();
-
+const router = require("express").Router();
 
 // GET the homepage
 router.get("/", async (req, res) => {
@@ -14,15 +13,15 @@ router.get("/", async (req, res) => {
 });
 
 // GET the new user form after signing up
-router.get('/new-pet-form', async (req, res) => {
-    try {
-        res.render('new-pet-form', {
-          loggedIn: req.session.loggedIn,
-        });
-    } catch {
-        console.log(err);
-        res.status(500).json(err);
-    }
+router.get("/new-pet-form", async (req, res) => {
+  try {
+    res.render("new-pet-form", {
+      loggedIn: req.session.loggedIn,
+    });
+  } catch {
+    console.log(err);
+    res.status(500).json(err);
+  }
 });
 
 // Login route
@@ -68,10 +67,20 @@ router.get("/client-appointment", async (req, res) => {
   }
 });
 
-// GET the appointments login page
+// GET guest appointment page
+router.get("/guest-appointment", async (req, res) => {
+  try {
+    res.render("guest-appointment");
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// GET the appointment page
 router.get("/appointment", async (req, res) => {
   try {
-    res.render("app-login", {
+    res.render("appointment-gate", {
       user_id: req.session.user_id,
     });
   } catch (err) {
