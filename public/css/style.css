@@ -3,11 +3,19 @@
 /* Base styles */
 html, body {
   font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 /* Hero section */
 .hero.is-primary.is-bold {
   background: linear-gradient(135deg, #2d9fd9 0%, #2d9fd9 50%, #4b4d7c 50%, #4b4d7c 100%);
+}
+
+.hero-image {
+  width: 480px;
+  height: 320px;
+  object-fit: cover;
 }
 
 /* About section */
@@ -35,21 +43,14 @@ html, body {
 }
 
 /* Services section */
-.carousel {
-  display: flex;
-  overflow: hidden;
-  position: relative;
+#services .columns {
   margin: 2rem 0;
 }
 
-.carousel-item {
-  display: none;
-  flex-shrink: 0;
-  width: 100%;
-}
-
-.carousel-item.is-active {
-  display: block;
+.service-image {
+  width: 380px;
+  height: 250px;
+  object-fit: cover;
 }
 
 /* Meet the team section */
@@ -63,9 +64,21 @@ html, body {
 
 .card .card-image img {
   object-fit: cover;
+  width: 480px;
+  height: 320px;
 }
 
 /* Contact Us section */
 #contact {
   margin-top: 2rem;
+}
+
+/* Motion effect on service items */
+.service-item {
+  transition: transform 0.3s ease-in-out;
+  padding: 0 20px;
+}
+
+.service-item:hover {
+  transform: translateY(-10px);
 }
