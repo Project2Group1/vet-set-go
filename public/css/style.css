@@ -89,5 +89,6 @@ body {
   
 /* Map styling */
 #map {
-  height: 100%;
+  height: 400px;
+  width: 600px;
 }
