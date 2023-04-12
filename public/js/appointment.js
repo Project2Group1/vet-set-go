@@ -38,7 +38,7 @@ if (element) {
   });
 }
 
-// Form handler for a client's appointment
+// Form handler for a client appointment
 const clientFormHandler = async (event) => {
   event.preventDefault();
 
@@ -83,7 +83,7 @@ const clientFormHandler = async (event) => {
       });
 
       if (response.ok) {
-        document.location.replace("booked");
+        document.location.replace("/booked");
       } else throw console.error();
     } catch (err) {
       alert("Failed to submit appointment. Please try again");
@@ -93,7 +93,7 @@ const clientFormHandler = async (event) => {
   }
 };
 
-// Form handler for a guest's appointment
+// Form handler for a guest appointment
 const guestFormHandler = async (event) => {
   event.preventDefault();
 

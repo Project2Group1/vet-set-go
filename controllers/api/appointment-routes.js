@@ -7,7 +7,7 @@ router.post("/", async (req, res) => {
   if (req.body.isUser) {
     const userData = await Users.findByPk(req.session.user_id);
     const petData = await Pets.findOne({
-      where: { user_id: userData.id, name: req.body.pet_name },
+      where: { owner_id: userData.id, name: req.body.pet_name },
     });
 
     try {
@@ -40,12 +40,12 @@ router.post("/", async (req, res) => {
         lastName: req.body.lastName,
         email: req.body.email,
         pet_name: req.body.pet_name,
-        petType: req.body.type,
+        petType: req.body.petType,
         breed: req.body.breed,
         allergies: req.body.allergies,
         vaccinated: req.body.vaccinated,
         birthday: req.body.birthday,
-        isNeuteredOrSpayed: req.body.spayNeutered,
+        isNeuteredOrSpayed: req.body.isNeuteredOrSpayed,
         sex: req.body.sex,
         concern: req.body.concern,
       });
