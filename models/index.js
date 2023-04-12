@@ -6,42 +6,39 @@ const Pets = require("./Pets");
 const Appointments = require("./Appointments");
 
 Users.hasMany(Pets, {
-  foreignKey: 'owner_id',
-  onDelete: 'CASCADE'
+  foreignKey: "owner_id",
+  onDelete: "CASCADE",
 });
 Pets.belongsTo(Users);
 
 Pets.hasMany(Records, {
-  foreignKey: 'pet_id',
-  onDelete: 'CASCADE'
+  foreignKey: "pet_id",
+  onDelete: "CASCADE",
 });
 Records.belongsTo(Pets);
 
 Users.hasMany(Topics, {
-  foreignKey: 'user_id',
+  foreignKey: "user_id",
 });
 
 Topics.belongsTo(Users, {
-  foreignKey: 'user_id',
+  foreignKey: "user_id",
 });
 
 Users.hasMany(Comments, {
-  foreignKey: 'user_id',
+  foreignKey: "user_id",
 });
 Comments.belongsTo(Users, {
-  foreignKey: 'user_id',
+  foreignKey: "user_id",
 });
 
 Topics.hasMany(Comments, {
-    foreignKey: 'topics_id',
+  foreignKey: "topics_id",
 });
 
 Comments.belongsTo(Topics, {
-    foreignKey: 'topics_id',
+  foreignKey: "topics_id",
 });
-
-Users.hasMany(Appointments);
-Appointments.belongsTo(Users);
 
 module.exports = {
   Users,
