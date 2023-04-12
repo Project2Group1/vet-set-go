@@ -1,7 +1,7 @@
 const session = require("express-session");
 const { Users, Pets } = require("../../models");
 
-// Using datepicker code from the net pet form //
+// Using datepicker code from the new pet form //
 var options = {
   color: "primary",
   isRange: false,
