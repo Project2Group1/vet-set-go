@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const { Users, Pets } = require("../models");
 
 // GET the homepage
 router.get("/", async (req, res) => {
@@ -33,7 +34,6 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-
 // GET the contact page
 router.get("/contact", async (req, res) => {
   try {
@@ -46,11 +46,17 @@ router.get("/contact", async (req, res) => {
   }
 });
 
-// GET the client appointments page
+// GET the client appointments page with current user
 router.get("/client-appointment", async (req, res) => {
   try {
+    const userData = await Users.findByPk(req.session.user_id, {
+      include: [{ model: Pets }],
+    });
+    const currentUser = userData.get({ plain: true });
+    // Send over the current user to appointments page
     res.render("client-appointment", {
-      user_id: req.session.user_id,
+      currentUser,
+      loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     console.log(err);
@@ -61,7 +67,7 @@ router.get("/client-appointment", async (req, res) => {
 // GET guest appointment page
 router.get("/guest-appointment", async (req, res) => {
   try {
-    res.render("guest-appointment");
+    res.render("guest-appointment", { loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
@@ -71,11 +77,18 @@ router.get("/guest-appointment", async (req, res) => {
 // GET the appointment page
 router.get("/appointment", async (req, res) => {
   try {
-    res.render("appointment-gate", {
-      user_id: req.session.user_id,
-    });
+    res.render("appointment-gate", { loggedIn: req.session.loggedIn });
   } catch (err) {
     console.log(err);
+    res.status(500).json(err);
+  }
+});
+
+// Get booked page after completing appointment form
+router.get("/booked", async (req, res) => {
+  try {
+    res.render("booked", { loggedIn: req.session.loggedIn });
+  } catch (err) {
     res.status(500).json(err);
   }
 });

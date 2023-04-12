@@ -80,9 +80,16 @@ body {
   height: 320px;
 }
 
-/* Contact Us section */
-.contact {
+/* Appointment sections */
+.appointment-container {
   margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Contact section */
+.contact-container {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 /* Motion effect on service items */
@@ -102,7 +109,7 @@ body {
 
 /* General Styles */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 h2.title {
@@ -257,7 +264,7 @@ body {
 
 /* General Styles */
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
 }
 
 h2.title {
@@ -327,6 +334,6 @@ h2.title {
   }
 
   .nav-btn {
-    margin: 5px
+    margin: 5px;
   }
 }
