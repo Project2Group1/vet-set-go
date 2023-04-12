@@ -319,3 +319,13 @@ h2.title {
   font-size: 0.9rem;
 }
 
+@media screen and (max-width: 768px) {
+  #nav-bar {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-btn {
+    margin: 5px
+  }
+}
