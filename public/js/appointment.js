@@ -112,12 +112,16 @@ const guestFormHandler = async (event) => {
     .value.trim();
   const breed = document.querySelector("#breed-contact").value.trim();
   const birthday = document.querySelector("#DOB-contact").value.trim();
-  const sex = document.querySelector("#sex-contact").value.trim();
-  const allergies = document.querySelector("#allergies-contact").value.trim();
-  const isNeuteredOrSpayed = document
-    .querySelector("#spayNeutered-contact")
+  const sex = document
+    .querySelector('input[name="sex-contact"]:checked')
     .value.trim();
-  const vaccinated = document.querySelector("#vaccinated-contact").value.trim();
+  const allergies = document.querySelector("#allergies-contact").value.trim();
+  var isNeuteredOrSpayed = document
+    .querySelector('input[name="spayNeutered-contact"]:checked')
+    .value.trim();
+  var vaccinated = document
+    .querySelector('input[name="vaccinated-contact"]:checked')
+    .value.trim();
   const concern = document.querySelector("#concern-contact").value.trim();
 
   vaccinated = vaccinated == "yes" ? true : false;
