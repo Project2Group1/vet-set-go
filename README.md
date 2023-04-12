@@ -6,7 +6,7 @@
 
 We have created a website for a veterinary clinic. The website allows users to create an account and add pet profiles to their account. Users can then view the pet records and vet's notes. Users can also book new appointments and participate in a Q&A forum.
 
-We created this website because we want to help a veterinary clinic to provide a better service to their clients. We believe that having more interaction/ties between the clinic and the users will make more help the clinic to grow whilst keeping a loyal customer base.
+We created this website because we want to help a veterinary clinic to provide a better service to their clients. We believe that having more interaction/ties between the clinic and the users will help the clinic grow whilst keeping a loyal customer base.
 
 ## Table of contents
 
@@ -22,13 +22,13 @@ We created this website because we want to help a veterinary clinic to provide a
 
 Ensure that you have Node.js installed, v16 is best. You can follow [this](https://coding-boot-camp.github.io/full-stack/nodejs/how-to-install-nodejs) guide for installation instructions.
 
-Clone this repository to your local machine.
+Clone this repository to your local machine:
 
 ```bash
 git clone git@github.com:Project2Group1/vet-set-go.git
 ```
 
-Navigate to the root directory of the project and install the required dependencies.
+Navigate to the root directory of the project and install the required dependencies:
 
 ```bash
 cd ./vet-set-go
@@ -70,7 +70,7 @@ Navigate to [http://localhost:3001/](http://localhost:3001/) in your browser to 
 
 ## Usage
 
-The application has been deployed to Heroku. You can view the website at [https://whispering-coast-03143.herokuapp.com/](https://whispering-coast-03143.herokuapp.com/).
+The application has been deployed to Heroku. You can view the website at [https://whispering-coast-03143.herokuapp.com/](https://whispering-coast-03143.herokuapp.com/)
 
 ## Features
 
