@@ -1,0 +1,113 @@
+<div class="container">
+    <div class="columns is-centered m-3">
+        <div class="column is-4">
+            {{!-- Log in form --}}
+            <form class="login-form box">
+                {{!-- Email --}}
+                <div class="field">
+                    <p class="control has-icons-left">
+                        <input id="email-login" class="input" type="email" placeholder="Email">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                    </p>
+                </div>
+                {{!-- Password --}}
+                <div class="field">
+                    <p class="control has-icons-left">
+                        <input id="password-login" class="input" type="password" placeholder="Password">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </p>
+                    <div id="incorrect-login" hidden>
+                        <br>
+                        <div class="notification is-danger is-light">
+                            <button class="delete"></button>
+                            The email address / password combination is incorrect
+                        </div>
+                    </div>
+                </div>
+                {{!-- Login button --}}
+                <div class="field">
+                    <button class="button is-info" type="submit">
+                        Login
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        {{!-- Sign up form --}}
+        <div class="column is-4">
+            <form class="signup-form column box">
+                {{!-- First and last name --}}
+                <div class="field is-horizontal">
+                    <div class="field">
+                        <p class="control has-icons-left has-icons-right">
+                            <input id="firstName-signup" class="input" type="text" placeholder="First Name">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </p>
+                        <div id="no-firstName" hidden>
+                            <p class="help is-danger">
+                                This field is required
+                            </p>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <p class="control has-icons-left has-icons-right">
+                            <input id="lastName-signup" class="input" type="text" placeholder="Last Name">
+                            <span class="icon is-small is-left">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        </p>
+                        <div id="no-lastName" hidden>
+                            <p class="help is-danger">
+                                This field is required
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {{!-- Email --}}
+                <div class="field">
+                    <p class="control has-icons-left">
+                        <input id="email-signup" class="input" type="email" placeholder="Email">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                    </p>
+                    <div id="no-email" hidden>
+                        <p class="help is-danger">
+                            This field is required
+                        </p>
+                    </div>
+                </div>
+                {{!-- Password --}}
+                <div class="field">
+                    <p class="control has-icons-left">
+                        <input id="password-signup" class="input" type="password" placeholder="Password">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </p>
+                    <div id="short-password" hidden>
+                        <p class="help is-danger">
+                            The password must be at least 8 characters long
+                        </p>
+                    </div>
+                </div>
+                {{!-- Submit button --}}
+                <div class="field">
+                    <button class="button is-info" type="submit">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<script src="/js/login.js"></script>

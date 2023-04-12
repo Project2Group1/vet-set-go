@@ -1,0 +1,339 @@
+/* Custom styles for Vetset Go */
+
+/* Base styles */
+html,
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+/* Hero section */
+.hero.is-primary.is-bold {
+  background: linear-gradient(
+    135deg,
+    #2d9fd9 0%,
+    #2d9fd9 50%,
+    #4b4d7c 50%,
+    #4b4d7c 100%
+  );
+}
+
+.hero-image {
+  width: 480px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-out;
+}
+
+.hero-image:hover {
+  transform: scale(1.05);
+}
+
+/* About section */
+#about {
+  margin-top: 2rem;
+}
+
+/* Announcements and Forum section */
+.section ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.section .content {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 1rem;
+}
+
+.section .date {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #2d9fd9;
+}
+
+/* Services section */
+#services .columns {
+  margin: 2rem 0;
+}
+
+.service-image {
+  width: 380px;
+  height: 250px;
+  object-fit: cover;
+}
+
+/* Meet the team section */
+#team {
+  margin-top: 2rem;
+}
+
+.card {
+  height: 100%;
+}
+
+.card .card-image img {
+  object-fit: cover;
+  width: 480px;
+  height: 320px;
+}
+
+/* Appointment sections */
+.appointment-container {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Contact section */
+.contact-container {
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Motion effect on service items */
+.service-item {
+  transition: transform 0.3s ease-in-out;
+  padding: 0 20px;
+}
+
+.service-item:hover {
+  transform: translateY(-10px);
+}
+
+/* Map styling */
+#map {
+  height: 100%;
+}
+
+/* General Styles */
+body {
+  font-family: "Arial", sans-serif;
+}
+
+h2.title {
+  margin-bottom: 1.5rem;
+}
+
+.title.is-2 {
+  margin-top: 1.5rem;
+}
+
+/* Hero Section */
+.hero.is-primary {
+  background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+}
+
+.hero-image {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  transition: transform 0.3s ease-out;
+}
+
+.hero-image:hover {
+  transform: scale(1.05);
+}
+
+/* Button */
+.button {
+  background: #8fd3f4;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0.8em 1.5em;
+  text-transform: uppercase;
+  transition: background 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.button:hover {
+  background: #84fab0;
+  transform: translateY(-3px);
+}
+
+/* Other Section styles here */
+/* Custom styles for Vetset Go */
+
+/* Base styles */
+html,
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+/* Hero section */
+.hero.is-primary.is-bold {
+  background: linear-gradient(
+    135deg,
+    #2d9fd9 0%,
+    #2d9fd9 50%,
+    #4b4d7c 50%,
+    #4b4d7c 100%
+  );
+}
+
+.hero-image {
+  width: 480px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-out;
+}
+
+.hero-image:hover {
+  transform: scale(1.05);
+}
+
+/* About section */
+#about {
+  margin-top: 2rem;
+}
+
+/* Announcements and Forum section */
+.section ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.section .content {
+  margin-bottom: 2rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding-bottom: 1rem;
+}
+
+.section .date {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #2d9fd9;
+}
+
+/* Services section */
+#services .columns {
+  margin: 2rem 0;
+}
+
+.service-image {
+  width: 360px;
+  height: 260px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+/* Add spacing between the first row and second row */
+.second-row-item {
+  margin-top: 2rem;
+}
+
+/* Meet the team section */
+#team {
+  margin-top: 2rem;
+}
+
+.card {
+  height: 100%;
+}
+
+.card .card-image img {
+  object-fit: cover;
+  width: 480px;
+  height: 320px;
+}
+
+/* Contact Us section */
+.contact {
+  margin-top: 2rem;
+}
+
+/* Motion effect on service items */
+.service-item {
+  transition: transform 0.3s ease-in-out;
+  padding: 0 20px;
+}
+
+.service-item:hover {
+  transform: translateY(-10px);
+}
+
+/* Map styling */
+#map {
+  height: 100%;
+}
+
+/* General Styles */
+body {
+  font-family: "Arial", sans-serif;
+}
+
+h2.title {
+  margin-bottom: 1.5rem;
+}
+
+.title.is-2 {
+  margin-top: 1.5rem;
+}
+
+/* Hero Section */
+.hero.is-primary {
+  background: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
+}
+
+.hero-image {
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  transition: transform 0.3s ease-out;
+}
+
+.hero-image:hover {
+  transform: scale(1.05);
+}
+
+/* Button */
+.button {
+  background: #8fd3f4;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0.8em 1.5em;
+  text-transform: uppercase;
+  transition: background 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.button:hover {
+  background: #3cbbff;
+  transform: translateY(-3px);
+}
+
+/* Other Section styles here */
+
+/* Announcement section */
+.announcement-box {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.announcement-box:hover {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-5px);
+}
+
+.date {
+  color: #2d9fd9;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+
+@media screen and (max-width: 768px) {
+  #nav-bar {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav-btn {
+    margin: 5px;
+  }
+}

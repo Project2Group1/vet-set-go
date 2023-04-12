@@ -1,0 +1,114 @@
+<div class="container box mt-4 p-6 has-background-light">
+  {{!-- Owner profile --}}
+  <h1 class="title has-text-centered has-text-info">
+    Welcome back, {{ profile.firstName }}
+  </h1>
+  <h2 class="subtitle has-text-centered">
+    Select a pet:
+  </h2>
+
+  {{!-- Pet names --}}
+  <section>
+    <div class="tabs is-centered is-large is-toggle is-toggle-rounded">
+      <ul>
+        {{#each pets as |pet|}}
+        <li data-id="{{id}}">
+          <a class="pet-tab" href="#">
+            <span class="icon is-small">
+              <i data-id="{{id}}" data-type="petType" class="{{petType}} fas fa-music" aria-hidden="true"></i>
+            </span>
+            <span>{{name}}</span>
+          </a>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+    {{!-- Pet profile / records --}}
+    <div id="tab-content" class="has-text-centered">
+      <div class="" id="tab" hidden>
+        <div class="">
+          {{!-- Pet image --}}
+          <div class="card">
+            <div class="p-4 columns">
+              <div class="content column is-one-quarter">
+                <figure class="image is-128x128 ">
+                  <img>
+                </figure>
+                {{!-- Image upload --}}
+                <div class="file has-name is-small">
+                  <label class="file-label">
+                    <input class="file-input" type="file" accept=".jpeg, .jpg, .tiff, .png, .gif" name="petPhoto">
+                    <span class="file-cta">
+                      <span class="file-icon">
+                        <i class="fas fa-upload"></i>
+                      </span>
+                      <span class="file-label">
+                        Choose a photo
+                      </span>
+                    </span>
+                    <span class="file-name">
+                    </span>
+                    <button id="photo-upload" type="submit" class="button is-info is-small">Upload</button>
+                  </label>
+                </div>
+              </div>
+              {{!-- Pet info --}}
+              <div class="column has-text-left pl-5">
+                <h5 class="has-text-info has-text-weight-semibold p-1">Birthday: <span class="has-text-black"
+                    id="birthday"> </span></h5>
+                <h5 class="has-text-info has-text-weight-semibold p-1">Breed: <span class="has-text-black"
+                    id="breed"></span></h5>
+                <h5 class="has-text-info has-text-weight-semibold p-1">Gender: <span class="has-text-black"
+                    id="sex"></span></h5>
+                <h5 class="has-text-info has-text-weight-semibold p-1">Allergies: <span class="has-text-black"
+                    id="allergies"></span></h5>
+                <h5 class="has-text-info has-text-weight-semibold p-1">Vaccinated: <span class="has-text-black"
+                    id="vaccinated"></span></h5>
+                <h5 class="has-text-info has-text-weight-semibold p-1">Neutered or spayed: <span class="has-text-black"
+                    id="isNeuteredOrSpayed"></span></h5>
+                <div class="">
+                  <h5 id="details-appt" class="has-text-info has-text-weight-semibold p-1 is-size-5" id="lastRecord">
+                    Details recorded during your last appointment on <span id="lastAppointment">lastAppointment</span>:
+                  </h5>
+                  <h5 class="has-text-info has-text-weight-semibold p-1">Weight: <span class="has-text-black"
+                      id="weight"></span></h5>
+                  <h5 class="has-text-info has-text-weight-semibold p-1">Vet's notes: <span class="has-text-black"
+                      id="vetNotes"></span></h5>
+                </div>
+              </div>
+            </div>
+            {{!-- Delete button --}}
+            <div class="buttons m-4">
+              <button id="delete-btn" type="submit" class="button is-danger is-light">Delete this pet</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  {{!-- Delete / add a pet --}}
+  <div class="buttons">
+    <a href="/new-pet-form" class="button is-info m-4">Add a new pet</a>
+  </div>
+</div>
+
+<div class="container box p-6 has-background-light">
+  <h1 class="title has-text-centered has-text-info">Your Posts</h1>
+  {{#each topics as |topic|}}
+  <section class="box p-2 my-0">
+    <a href="/api/forums/{{topic.id}}">
+      <div class="level">
+        <div class="level-left">
+          <header class="is-size-4 has-text-dark">{{topic.titleText}}</header>
+        </div>
+        <div class="pr-2 level-right">
+          <button class="button is-small is-danger is-light" type="submit" id="delete-btn-{{id}}">Delete Post</button>
+        </div>
+      </div>
+    </a>
+  </section>
+  {{/each}}
+</div>
+
+<script src="/js/profile.js"></script>
+<script src="/js/delete-post.js"></script>

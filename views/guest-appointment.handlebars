@@ -1,0 +1,208 @@
+<section class="appointment-container container">
+  <h1 class="title has-text-centered has-text-info is-spaced">Make an Appointment</h1>
+  <div class="inner-content">
+    <form class="guest-form">
+      <h3 class="subtitle">Owner Information</h3>
+    
+      <div class="field is-horizontal">
+          <div class="field-label is-normal">
+              <label class="label">Name *</label>
+          </div>
+          <div class="field-body">
+              <div class="field">       
+                  <div class="control is-expanded">
+                      <input class="input" type="text" id="firstName-contact">
+                  </div>
+                  <p class="help">First</p>
+              </div>
+
+              <div class="field">
+                  <div class="control is-expanded">
+                      <input class="input" type="text" id="lastName-contact">
+                  </div>
+                  <p class="help">Last</p>
+              </div>
+          </div>
+      </div>
+
+      <div class="field is-horizontal">
+          <div class="field-label is-normal">
+              <label class="label">Email *</label>
+          </div>
+          <div class="field-body">
+              <div class="field">
+                  <div class="control">
+                      <input class="input" type="email" id="email-contact">
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <h3 class="subtitle">Pet Information</h3>
+
+      <div class="field is-horizontal">
+          <div class="field-label is-normal">
+              <label class="label">Pet Name *</label>
+          </div>
+          <div class="field-body">
+              <div class="field">
+                  <div class="control">
+                      <input class="input" type="text" id="petName-contact">
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="field is-horizontal">
+          <div class="field-label is-normal">
+              <label class="label">Animal Type *</label>
+          </div>
+          <div class="field-body">
+              <div class="field">
+                  <div class="control">
+                      <div class="select is-fullwidth" id="petType-contact">
+                          <select>
+                            <option value="">Select one option</option>
+                            <option value="bird">Bird</option>
+                            <option value="cat">Cat</option>
+                            <option value="dog">Dog</option>
+                            <option value="fish">Fish</option>
+                            <option value="reptile">Reptile</option>
+                            <option value="other">Other</option>
+                          </select>
+                        </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="field is-horizontal">
+          <div class="field-label is-normal">
+              <label class="label">Breed</label>
+          </div>
+          <div class="field-body">
+              <div class="field">
+                  <div class="control">
+                      <input class="input" type="text" id="breed-contact">
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="field is-horizontal">
+          <div class="field-label is-normal">
+              <label class="label">Birthday *</label>
+          </div>
+          <div class="field-body">
+              <div class="field">
+                  <div class="control">
+                      <input id="DOB-contact" type="date">
+                  </div>
+                  <p class="help">Please enter your pet's approximate birthdate</p>
+              </div>
+          </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+            <label class="label">Sex *</label>
+        </div>
+        <div class="field-body">
+          <div class="field is-narrow">
+            <div id="sex-contact" class="control">
+              <label class="radio">
+                <input type="radio" name="sex-contact" value="male">
+                Male
+              </label>
+              <label class="radio">
+                <input type="radio" name="sex-contact" value="female">
+                Female
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">Allergies</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <textarea class="textarea" id="allergies-contact"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+          <div class="field-label is-normal">
+              <label class="label">Has your pet been spayed/neutered? *</label>
+          </div>
+        <div class="field-body">
+          <div class="field is-narrow">
+            <div id="spayNeutered-contact" class="control">
+              <label class="radio">
+                <input type="radio" name="spayNeutered-contact" value="yes">
+                Yes
+              </label>
+              <label class="radio">
+                <input type="radio" name="spayNeutered-contact" value="no">
+                No
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+          <div class="field-label is-normal">
+              <label class="label">Has your pet been vaccinated? *</label>
+          </div>
+        <div class="field-body">
+          <div class="field is-narrow">
+            <div id="vaccinated-contact" class="control">
+              <label class="radio">
+                <input type="radio" name="vaccinated-contact" value="yes">
+                Yes
+              </label>
+              <label class="radio">
+                <input type="radio" name="vaccinated-contact" value="no">
+                No
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label is-normal">
+          <label class="label">What is the reason for your visit? *</label>
+        </div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <textarea class="textarea" id="concern-contact"></textarea>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="field is-horizontal">
+        <div class="field-label"></div>
+        <div class="field-body">
+          <div class="field">
+            <div class="control">
+              <button class="button is-info mb-4" type="submit">
+                Submit
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<script src="/js/appointment.js"></script>
