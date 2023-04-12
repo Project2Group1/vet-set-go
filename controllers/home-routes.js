@@ -33,22 +33,13 @@ router.get("/login", (req, res) => {
   res.render("login");
 });
 
-// Logout route
-router.post("/logout", (req, res) => {
-  if (req.session.logged_in) {
-    // Remove the session variables
-    req.session.destroy(() => {
-      res.status(204).end();
-    });
-  } else {
-    res.status(404).end();
-  }
-});
 
 // GET the contact page
 router.get("/contact", async (req, res) => {
   try {
-    res.render("contact");
+    res.render("contact", {
+      loggedIn: req.session.loggedIn,
+    });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);

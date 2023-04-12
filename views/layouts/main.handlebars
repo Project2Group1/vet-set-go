@@ -6,16 +6,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!-- Set the title of the page -->
     <title>Vetset-Go</title>
+
     <!-- Link to external CSS libraries -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link href="/css/bulma-calendar.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/css/style.css">
 
-    <!-- Link to external JavaScript libraries and font icons -->
+    <!-- Link to font icons -->
     <script src="https://kit.fontawesome.com/bc80d4a5ca.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+Knujsl5/1ov5+5G5Bd2v+Q3iy9/3b6fIHwbNO1YlR1tph8" crossorigin="anonymous">
+
+    <!-- Link to external JavaScript libraries -->
     <script src="/js/bulma-calendar.min.js"></script>
+
 </head>
 
 <body>
@@ -28,20 +34,20 @@
                         <!-- Website title -->
                         <a href="/" class="title">Vetset Go</a>
                     </div>
-                    <div class="column is-narrow">
-
+                    <div class="column is-narrow" id="nav-bar">
+                        <a href="/api/forums" class="button is-light nav-btn">Forums</a>
+                        <a href="/contact" class="button is-light nav-btn">Contact</a>
+                        {{#if loggedIn}}
+                        <a href="/api/users/profile" id="profile-button" class="button is-light nav-btn">Your Profile</a>
+                        {{/if}}
                         <!-- Conditional rendering based on user login status -->
                         {{#if loggedIn}}
-                        <a href="/logout" id="logout-button" class="button is-light">Log Out</a>
+                        <button id="logout-button" class="button is-light nav-btn">Log Out</button>
                         {{else}}
-                        <a href="/login" id="login-button" class="button is-light">Log In</a>
+                        <a href="/login" id="login-button" class="button is-light nav-btn">Log In</a>
                         {{/if}}
                         </li>
                         </ul>
-
-                        {{#if loggedIn}}
-                        <a href="/api/users/profile" id="profile-button" class="button is-light">Your Profile</a>
-                        {{/if}}
                     </div>
                 </div>
             </div>
