@@ -1,6 +1,6 @@
 <div>
     <section id="topic" class="box p-0 m-3" data-id={{id}}>
-        <div class="level box">
+        <div class="level box has-background-primary-light">
             <div class="level-left">
                 <h2 class="is-size-3 px-2">{{titleText}}</h2>
             </div>
@@ -12,9 +12,6 @@
             <p class="is-size-5 px-2">{{descriptionText}}</p>
         </div>
     </section>
-    <div class="pr-2 m-3 level-right">
-        <button class="button mt-2 is-primary" type="submit" id="delete-btn">Delete Post</button>
-    </div>
     <section class="" id="comments-section">
         <h2 class="is-size-4 p-2 mx-3">Comments:</h2>
         {{#each comments as |comment|}}

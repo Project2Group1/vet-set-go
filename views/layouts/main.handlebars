@@ -31,6 +31,9 @@
                     <div class="column is-narrow">
                         <a href="/api/forums" class="button is-light">Forums</a>
                         <a href="/contact" class="button is-light">Contact</a>
+                        {{#if loggedIn}}
+                        <a href="/api/users/profile" id="profile-button" class="button is-light">Your Profile</a>
+                        {{/if}}
                         <!-- Conditional rendering based on user login status -->
                         {{#if loggedIn}}
                         <button id="logout-button" class="button is-light">Log Out</button>
@@ -39,10 +42,6 @@
                         {{/if}}
                         </li>
                         </ul>
-
-                        {{#if loggedIn}}
-                        <a href="/api/users/profile" id="profile-button" class="button is-light">Your Profile</a>
-                        {{/if}}
                     </div>
                 </div>
             </div>
