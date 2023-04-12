@@ -113,12 +113,15 @@ Contact us
 
 This page was styled using the [Bulma](https://bulma.io/) CSS framework. In addition to the basic Bulma framework, we used the [Calendar extension](https://wikiki.github.io/components/calendar/) to style the date pickers.
 
+[This](https://github.com/richardgirges/express-fileupload/tree/master/example#basic-file-upload) tutorial and the NPM package express-fileupload helped us to implement the file upload feature.
+
 NPM packages used:
 
 - [bcrypt](https://www.npmjs.com/package/bcrypt)
 - [connect-session-sequelize](https://www.npmjs.com/package/connect-session-sequelize)
 - [dotenv](https://www.npmjs.com/package/dotenv)
 - [express](https://www.npmjs.com/package/express)
+- [express-fileupload](https://www.npmjs.com/package/express-fileupload)
 - [express-handlebars](https://www.npmjs.com/package/express-handlebars)
 - [express-session](https://www.npmjs.com/package/express-session)
 - [mysql2](https://www.npmjs.com/package/mysql2)
