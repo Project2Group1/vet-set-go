@@ -1,0 +1,1 @@
+const deletePost = document.querySelectorAll('[id^="delete-btn-"]')

@@ -1,4 +1,4 @@
-<div class="container box p-6 has-background-light">
+<div class="container box mt-4 p-6 has-background-light">
   {{!-- Owner profile --}}
   <h1 class="title has-text-centered has-text-primary">
     Welcome back, {{ profile.firstName }}
@@ -93,7 +93,7 @@
                       <header class="is-size-4 has-text-dark">{{topic.titleText}}</header>
                   </div>
                   <div class="pr-2 level-right">
-                    <button class="button mt-2 is-small is-primary" type="submit" id="delete-btn">Delete Post</button>
+                    <button class="button is-small is-danger is-light" type="submit" id="delete-btn-{{id}}">Delete Post</button>
                   </div>
               </div>
           </a>
