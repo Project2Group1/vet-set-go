@@ -1,21 +1,6 @@
 const router = require("express").Router();
 const { Appointments, Users, Pets } = require("../../models");
 
-// GET names of current user's pets
-router.get("/", async (req, res) => {
-  try {
-    const dbpetNames = await Pets.findAll({
-      where: { owner_id: req.session.user_id },
-      attributes: ["name"],
-    });
-
-    console.log(dbpetNames);
-    res.status(200).json(dbpetNames);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
 // CREATE new appointment
 router.post("/", async (req, res) => {
   // If the appointment is for an existing user
@@ -27,7 +12,7 @@ router.post("/", async (req, res) => {
 
     try {
       const newAppointment = await Appointments.create({
-        user_id: userData.user_id,
+        user_id: userData.id,
         firstName: userData.firstName,
         lastName: userData.lastName,
         email: userData.email,
@@ -44,14 +29,13 @@ router.post("/", async (req, res) => {
 
       res.status(200).json(newAppointment);
     } catch (err) {
-      console.log(err);
       res.status(500).json(err);
     }
   } else {
     // If the appointment is for a guest
     try {
       const newAppointment = await Appointments.create({
-        user_id: req.body.user_id,
+        user_id: null,
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
@@ -68,7 +52,6 @@ router.post("/", async (req, res) => {
 
       res.status(200).json(newAppointment);
     } catch (err) {
-      console.log(err);
       res.status(500).json(err);
     }
   }

@@ -1,5 +1,5 @@
 <section class="appointment-container container">
-  <h1 class="title has-text-centered has-text-success">Make an Appointment</h1>
+  <h1 class="title has-text-centered has-text-primary">Make an Appointment</h1>
   <div class="inner-content">
     <form class="client-form">
       <div class="field is-horizontal">
@@ -12,6 +12,9 @@
                       <div class="select is-fullwidth">
                           <select id="petName-contact">
                               <option value="">Select</option>
+                              {{#each currentUser.pets as |pet|}}
+                              <option value="{{pet.name}}">{{pet.name}}</option>
+                              {{/each}}
                           </select>
                       </div>
                   </div>
@@ -34,7 +37,7 @@
       </div>
 
       <div class="field is-horizontal">
-        <div class="field-label has-text-danger" id="warning"></div>
+        <div class="field-label"></div>
         <div class="field-body">
           <div class="field">
             <div class="control">

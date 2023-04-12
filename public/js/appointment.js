@@ -1,7 +1,3 @@
-const session = require("express-session");
-const { Users, Pets } = require("../../models");
-// Move model stuff to route
-
 // Using datepicker for birthday input //
 var options = {
   color: "primary",
@@ -34,29 +30,13 @@ for (var i = 0; i < calendars.length; i++) {
 }
 
 // To access to bulmaCalendar instance of an element
-var element = document.querySelector("#DOB-newPet");
+var element = document.querySelector("#DOB-contact");
 if (element) {
   // bulmaCalendar instance is available as element.bulmaCalendar
   element.bulmaCalendar.on("select", function (datepicker) {
     console.log(datepicker.data.value());
   });
 }
-
-// Generate a client's pets as dropdown options
-const getPets = async () => {
-  const petNames = await fetch("/api/appointment/", {
-    method: "GET",
-    headers: { "Content-Type": "application/json" },
-  });
-  const select = document.getElementById("petName-contact");
-
-  for (var name in petNames) {
-    var option = document.createElement("option");
-    option.text = name;
-    option.value = name;
-    select.appendChild(option);
-  }
-};
 
 // Form handler for a client's appointment
 const clientFormHandler = async (event) => {
@@ -81,31 +61,32 @@ const clientFormHandler = async (event) => {
       sex,
     } = null;
 
-    const response = await fetch("/api/appointment/", {
-      method: "POST",
-      body: JSON.stringify({
-        isUser,
-        firstName,
-        lastName,
-        email,
-        pet_name,
-        petType,
-        breed,
-        allergies,
-        vaccinated,
-        birthday,
-        isNeuteredOrSpayed,
-        sex,
-        concern,
-      }),
-      headers: { "Content-Type": "application/json" },
-    });
+    try {
+      const response = await fetch("/api/appointment/", {
+        method: "POST",
+        body: JSON.stringify({
+          isUser,
+          firstName,
+          lastName,
+          email,
+          pet_name,
+          petType,
+          breed,
+          allergies,
+          vaccinated,
+          birthday,
+          isNeuteredOrSpayed,
+          sex,
+          concern,
+        }),
+        headers: { "Content-Type": "application/json" },
+      });
 
-    if (response.ok) {
-      document.getElementById("inner-content").innerHTML =
-        "Your appointment request has been received! Keep an eye on your email for updates.";
-    } else {
-      alert("Failed to submit appointment");
+      if (response.ok) {
+        document.location.replace("booked");
+      } else throw console.error();
+    } catch (err) {
+      alert("Failed to submit appointment. Please try again");
     }
   } else {
     alert("You are missing one or more required fields");
@@ -122,7 +103,7 @@ const guestFormHandler = async (event) => {
   const pet_name = document.querySelector("#petName-contact").value.trim();
   const petType = document.querySelector("#petType-contact").value.trim();
   const breed = document.querySelector("#breed-contact").value.trim();
-  const birthday = document.querySelector("#birthday-contact").value.trim();
+  const birthday = document.querySelector("#DOB-contact").value.trim();
   const sex = document.querySelector("#sex-contact").value.trim();
   const allergies = document.querySelector("#allergies-contact").value.trim();
   const isNeuteredOrSpayed = document
@@ -130,6 +111,9 @@ const guestFormHandler = async (event) => {
     .value.trim();
   const vaccinated = document.querySelector("#vaccinated-contact").value.trim();
   const concern = document.querySelector("#concern-contact").value.trim();
+
+  vaccinated = vaccinated == "yes" ? true : false;
+  isNeuteredOrSpayed = isNeuteredOrSpayed == "yes" ? true : false;
 
   if (
     firstName &&
@@ -143,32 +127,32 @@ const guestFormHandler = async (event) => {
     concern
   ) {
     const isUser = false;
+    try {
+      const response = await fetch("/api/appointment/", {
+        method: "POST",
+        body: JSON.stringify({
+          isUser,
+          firstName,
+          lastName,
+          email,
+          pet_name,
+          petType,
+          breed,
+          allergies,
+          vaccinated,
+          birthday,
+          isNeuteredOrSpayed,
+          sex,
+          concern,
+        }),
+        headers: { "Content-Type": "application/json" },
+      });
 
-    const response = await fetch("/api/appointment/", {
-      method: "POST",
-      body: JSON.stringify({
-        isUser,
-        firstName,
-        lastName,
-        email,
-        pet_name,
-        petType,
-        breed,
-        allergies,
-        vaccinated,
-        birthday,
-        isNeuteredOrSpayed,
-        sex,
-        concern,
-      }),
-      headers: { "Content-Type": "application/json" },
-    });
-
-    if (response.ok) {
-      document.getElementById("inner-content").innerHTML =
-        "Your appointment request has been received! Keep an eye on your email for updates.";
-    } else {
-      alert("Failed to submit appointment");
+      if (response.ok) {
+        document.location.replace("/booked");
+      } else throw console.error();
+    } catch (err) {
+      alert("Failed to submit appointment. Please try again");
     }
   } else {
     alert("You are missing one or more required fields");
@@ -181,5 +165,4 @@ document
 
 document
   .querySelector(".client-form")
-  .addEventListener("submit", clientFormHandler)
-  .addEventListener("DOMContentLoaded", getPets);
+  .addEventListener("submit", clientFormHandler);
