@@ -3,7 +3,7 @@ const clientForm = document.querySelector(".client-form");
 
 // Using datepicker for birthday input //
 var options = {
-  color: "primary",
+  color: "info",
   isRange: false,
   allowSameDayRange: true,
   lang: "en-US",

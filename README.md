@@ -22,7 +22,7 @@ We created this website because we want to help a veterinary clinic to provide a
 
 Ensure that you have Node.js installed, v16 is best. You can follow [this](https://coding-boot-camp.github.io/full-stack/nodejs/how-to-install-nodejs) guide for installation instructions.
 
-Clone this respository to your local machine.
+Clone this repository to your local machine.
 
 ```bash
 git clone git@github.com:Project2Group1/vet-set-go.git
