@@ -1,8 +1,12 @@
-# Vet clinic website: access to Q&A forum and patient records
+# Vet Set Go: veterinary clinic website
 
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 ## Description
+
+We have created a website for a veterinary clinic. The website allows users to create an account and add pet profiles to their account. Users can then view the pet records and vet's notes. Users can also book new appointments and participate in a Q&A forum.
+
+We created this website because we want to help a veterinary clinic to provide a better service to their clients. We believe that having more interaction/ties between the clinic and the users will make more help the clinic to grow whilst keeping a loyal customer base.
 
 ## Table of contents
 
@@ -66,6 +70,8 @@ Navigate to [http://localhost:3001/](http://localhost:3001/) in your browser to 
 
 ## Usage
 
+The application has been deployed to Heroku. You can view the website at [https://whispering-coast-03143.herokuapp.com/](https://whispering-coast-03143.herokuapp.com/).
+
 ## Features
 
 - User can create an account
@@ -75,6 +81,31 @@ Navigate to [http://localhost:3001/](http://localhost:3001/) in your browser to 
 - User can participate in a Q&A forum
 
 ## Screenshots
+
+![Screenshot of the home page](./public/images/screenshots/homepage.png)
+
+Log in / Sign up page
+![Screenshot of the login page](./public/images/screenshots/login-signup.png)
+
+User profile page
+![Screenshot of the user profile page](./public/images/screenshots/user-profile.png)
+
+New pet page
+![Screenshot of the new pet page](./public/images/screenshots/new-pet.png)
+
+Forum page
+![Screenshot of the forum page](./public/images/screenshots/forum-summary.png)
+![Screenshot of a forum post](./public/images/screenshots/forum-post.png)
+
+Appointment page for logged in users
+![Screenshot of the appointment page](./public/images/screenshots/appointment-user.png)
+
+Appointment page for non-logged in users
+![Screenshot of the appointment page](./public/images/screenshots/appointment-guest.png)
+![Screenshot of the appointment page](./public/images/screenshots/appointment-guest2.png)
+
+Contact us
+![Screenshot of the contact us page](./public/images/screenshots/contact-us.png)
 
 ## Credits
 
