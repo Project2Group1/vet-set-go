@@ -115,6 +115,8 @@ This page was styled using the [Bulma](https://bulma.io/) CSS framework. In addi
 
 [This](https://github.com/richardgirges/express-fileupload/tree/master/example#basic-file-upload) tutorial and the NPM package express-fileupload helped us to implement the file upload feature.
 
+The map on the contact page was made using the Google Maps Static API and help from [this] (https://developers.google.com/maps/documentation/maps-static/start) tutorial.
+
 NPM packages used:
 
 - [bcrypt](https://www.npmjs.com/package/bcrypt)
