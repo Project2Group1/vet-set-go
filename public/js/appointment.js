@@ -1,3 +1,6 @@
+const guestForm = document.querySelector(".guest-form");
+const clientForm = document.querySelector(".client-form");
+
 // Using datepicker for birthday input //
 var options = {
   color: "primary",
@@ -42,7 +45,9 @@ if (element) {
 const clientFormHandler = async (event) => {
   event.preventDefault();
 
-  const pet_name = document.querySelector("#petName-contact").value.trim();
+  const pet_name = document
+    .querySelector("#petName-contact select")
+    .value.trim();
   const concern = document.querySelector("#concern-contact").value.trim();
 
   if (pet_name && concern) {
@@ -59,7 +64,7 @@ const clientFormHandler = async (event) => {
       birthday,
       isNeuteredOrSpayed,
       sex,
-    } = null;
+    } = "";
 
     try {
       const response = await fetch("/api/appointment/", {
@@ -97,11 +102,14 @@ const clientFormHandler = async (event) => {
 const guestFormHandler = async (event) => {
   event.preventDefault();
 
+  const isUser = false;
   const firstName = document.querySelector("#firstName-contact").value.trim();
   const lastName = document.querySelector("#lastName-contact").value.trim();
   const email = document.querySelector("#email-contact").value.trim();
   const pet_name = document.querySelector("#petName-contact").value.trim();
-  const petType = document.querySelector("#petType-contact").value.trim();
+  const petType = document
+    .querySelector("#petType-contact select")
+    .value.trim();
   const breed = document.querySelector("#breed-contact").value.trim();
   const birthday = document.querySelector("#DOB-contact").value.trim();
   const sex = document.querySelector("#sex-contact").value.trim();
@@ -126,7 +134,6 @@ const guestFormHandler = async (event) => {
     vaccinated &&
     concern
   ) {
-    const isUser = false;
     try {
       const response = await fetch("/api/appointment/", {
         method: "POST",
@@ -159,10 +166,10 @@ const guestFormHandler = async (event) => {
   }
 };
 
-document
-  .querySelector(".guest-form")
-  .addEventListener("submit", guestFormHandler);
+if (guestForm) {
+  guestForm.addEventListener("submit", guestFormHandler);
+}
 
-document
-  .querySelector(".client-form")
-  .addEventListener("submit", clientFormHandler);
+if (clientForm) {
+  clientForm.addEventListener("submit", clientFormHandler);
+}

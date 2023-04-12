@@ -7,7 +7,10 @@ router.post("/", async (req, res) => {
   if (req.body.isUser) {
     const userData = await Users.findByPk(req.session.user_id);
     const petData = await Pets.findOne({
-      where: { owner_id: userData.id, name: req.body.pet_name },
+      where: {
+        owner_id: userData.id,
+        name: req.body.pet_name,
+      },
     });
 
     try {
