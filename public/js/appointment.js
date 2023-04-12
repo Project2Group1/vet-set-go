@@ -41,18 +41,21 @@ if (element) {
   });
 }
 
+// Generate the user's pets as options for the dropdown menu
 const getPets = async () => {
-  console.log("We're here!");
-  const petNames = await Pets.findAll(
+  const { count, petNames } = await Pets.findAndCountAll(
     { where: { user_id: session.user_id } },
     { attributes: ["name"] }
   );
 
-  for (var name in petNames) {
-    var option = document.createElement("option");
-    option.text = name;
-    console.log(name);
-    document.querySelector("#petName-contact").appendChild(option);
+  if (petNames) {
+    for (var i = 0; i < count; i++) {
+      console.log(petNames[i]);
+      var option = document.createElement("option");
+      option.text = petNames[i];
+      option.value = petNames[i];
+      document.querySelector("#petName-contact").appendChild(option);
+    }
   }
 };
 
@@ -126,7 +129,8 @@ const clientFormHandler = async (event) => {
       petData.vaccinated
     );
   } else {
-    // Prompt for missing info
+    document.getElementById("warning").innerHTML =
+      "You are missing one or more required fields";
   }
 };
 
@@ -138,7 +142,7 @@ const guestFormHandler = async (event) => {
   const lastName = document.querySelector("#lastName-contact").value.trim();
   const email = document.querySelector("#email-contact").value.trim();
   const pet_name = document.querySelector("#petName-contact").value.trim();
-  const type = document.querySelector("#species-contact").value.trim();
+  const type = document.querySelector("#petType-contact").value.trim();
   const breed = document.querySelector("#breed-contact").value.trim();
   const birthday = document.querySelector("#birthday-contact").value.trim();
   const sex = document.querySelector("#sex-contact").value.trim();
@@ -176,7 +180,8 @@ const guestFormHandler = async (event) => {
       concern
     );
   } else {
-    // Prompt for missing info
+    document.getElementById("warning").innerHTML =
+      "You are missing one or more required fields";
   }
 };
 

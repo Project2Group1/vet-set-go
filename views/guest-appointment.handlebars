@@ -1,5 +1,5 @@
 <section class="contact container">
-  <h1 class="title has-text-centered has-text-success">Make an Appointment</h1>
+  <h1 class="title has-text-centered has-text-success is-spaced">Make an Appointment</h1>
   <div class="inner-content">
     <form class="guest-form">
     <h3 class="subtitle">Owner Information</h3>
@@ -11,14 +11,14 @@
           <div class="field-body">
               <div class="field">       
                   <div class="control is-expanded">
-                      <input class="input" type="text" id="firstName-contact" required>
+                      <input class="input" type="text" id="firstName-contact">
                   </div>
                   <p class="help">First</p>
               </div>
 
               <div class="field">
                   <div class="control is-expanded">
-                      <input class="input" type="text" id="lastName-contact" required>
+                      <input class="input" type="text" id="lastName-contact">
                   </div>
                   <p class="help">Last</p>
               </div>
@@ -32,7 +32,7 @@
           <div class="field-body">
               <div class="field">
                   <div class="control">
-                      <input class="input" type="email" id="email-contact" required>
+                      <input class="input" type="email" id="email-contact">
                   </div>
               </div>
           </div>
@@ -47,7 +47,7 @@
           <div class="field-body">
               <div class="field">
                   <div class="control">
-                      <input class="input" type="text" id="petName-contact" required>
+                      <input class="input" type="text" id="petName-contact">
                   </div>
               </div>
           </div>
@@ -55,12 +55,22 @@
 
       <div class="field is-horizontal">
           <div class="field-label is-normal">
-              <label class="label">Species</label>
+              <label class="label">Animal Type</label>
           </div>
           <div class="field-body">
               <div class="field">
                   <div class="control">
-                      <input class="input" type="text" id="species-contact" required>
+                      <div id="petType-contact" class="select is-fullwidth">
+                          <select>
+                            <option value="">Select one option</option>
+                            <option value="bird">Bird</option>
+                            <option value="cat">Cat</option>
+                            <option value="dog">Dog</option>
+                            <option value="fish">Fish</option>
+                            <option value="reptile">Reptile</option>
+                            <option value="other">Other</option>
+                          </select>
+                        </div>
                   </div>
               </div>
           </div>
@@ -94,18 +104,18 @@
       </div>
 
       <div class="field is-horizontal">
-          <div class="field-label is-normal">
-              <label class="label">Sex</label>
-          </div>
+        <div class="field-label is-normal">
+            <label class="label">Sex</label>
+        </div>
         <div class="field-body">
-          <div class="field">
-            <div class="control">
+          <div class="field is-narrow">
+            <div id="sex-contact" class="control">
               <label class="radio">
-                <input type="radio" name="client" id="sex-contact" checked>
+                <input type="radio" name="sex-contact" value="male">
                 Male
               </label>
               <label class="radio">
-                <input type="radio" name="client" id="sex-contact">
+                <input type="radio" name="sex-contact" value="female">
                 Female
               </label>
             </div>
@@ -131,14 +141,14 @@
               <label class="label">Has your pet been spayed/neutered?</label>
           </div>
         <div class="field-body">
-          <div class="field">
-            <div class="control">
+          <div class="field is-narrow">
+            <div id="spayNeutered-contact" class="control">
               <label class="radio">
-                <input type="radio" name="client" id="spayNeutered-contact">
+                <input type="radio" name="spayNeutered-contact" value="yes">
                 Yes
               </label>
               <label class="radio">
-                <input type="radio" name="client" id="spayNeutered-contact" checked>
+                <input type="radio" name="spayNeutered-contact" value="no">
                 No
               </label>
             </div>
@@ -151,14 +161,14 @@
               <label class="label">Has your pet been vaccinated?</label>
           </div>
         <div class="field-body">
-          <div class="field">
-            <div class="control">
+          <div class="field is-narrow">
+            <div id="vaccinated-contact" class="control">
               <label class="radio">
-                <input type="radio" name="client" id="vaccinated-contact">
+                <input type="radio" name="vaccinated-contact">
                 Yes
               </label>
               <label class="radio">
-                <input type="radio" name="client" id="vaccinated-contact" checked >
+                <input type="radio" name="vaccinated-contact">
                 No
               </label>
             </div>
@@ -174,16 +184,13 @@
           <div class="field">
             <div class="control">
               <textarea class="textarea" id="concern-contact"></textarea>
-              <!-- cannot be null -->
             </div>
           </div>
         </div>
       </div>
 
       <div class="field is-horizontal">
-        <div class="field-label">
-          <!-- Left empty for spacing -->
-        </div>
+        <div class="field-label has-text-danger" id="warning"></div>
         <div class="field-body">
           <div class="field">
             <div class="control">

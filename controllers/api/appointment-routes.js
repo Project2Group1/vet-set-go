@@ -2,15 +2,15 @@ const router = require("express").Router();
 const { Appointments } = require("../../models");
 
 // CREATE new appointment
-router.post("/", (req, res) => {
+router.post("/", async (req, res) => {
   try {
-    Appointments.create({
+    const newAppointment = await Appointments.create({
       user_id: req.body.user_id,
       firstName: req.body.firstName,
       lastName: req.body.lastName,
       email: req.body.email,
       pet_name: req.body.pet_name,
-      petType: req.body.species,
+      petType: req.body.type,
       breed: req.body.breed,
       allergies: req.body.allergies,
       vaccinated: req.body.vaccinated,
@@ -22,6 +22,7 @@ router.post("/", (req, res) => {
 
     // Send appointment to administratives
     // Send email to client
+    res.status(200).json(newAppointment);
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
