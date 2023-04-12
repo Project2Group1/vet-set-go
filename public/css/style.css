@@ -304,7 +304,7 @@ h2.title {
 }
 
 .button:hover {
-  background: #84fab0;
+  background: #3cbbff;
   transform: translateY(-3px);
 }
 
@@ -325,6 +325,7 @@ h2.title {
   font-weight: bold;
   font-size: 0.9rem;
 }
+
 
 @media screen and (max-width: 768px) {
   #nav-bar {

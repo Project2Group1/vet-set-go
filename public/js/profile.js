@@ -82,9 +82,9 @@ const selectPetHandler = async (event) => {
     }
     // If it's a new pet, there won't be any records associated with it
     if (response.records === undefined) {
-        document.querySelector("#lastAppointment").innerHTML = "You haven't had any appointments yet";
+        document.querySelector("#details-appt").innerHTML = "You haven't had any appointments yet";
         document.querySelector("#weight").innerHTML = "Please come into the clinic so we can weigh your pet";
-        document.querySelector("#vetNotes").innerHTML = "Please make an appointment to see the vet";
+        document.querySelector("#vetNotes").innerHTML = "Please <a href='/client-appointment'>make an appointment</a> to see the vet";
     } else {
         const lastAppt = new Date(response.records.lastAppointment);
         document.querySelector("#lastAppointment").innerHTML = lastAppt.toLocaleDateString('en-us', { year: "numeric", month: "long", day: "numeric" });
