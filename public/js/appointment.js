@@ -1,7 +1,7 @@
 const session = require("express-session");
 const { Users, Pets } = require("../../models");
 
-// Using datepicker code from the net pet form //
+// Using datepicker for birthday input //
 var options = {
   color: "primary",
   isRange: false,
@@ -41,24 +41,25 @@ if (element) {
   });
 }
 
-// Generate the user's pets as options for the dropdown menu
+// Generate a client's pets as dropdown options
 const getPets = async () => {
-  const { count, petNames } = await Pets.findAndCountAll(
-    { where: { user_id: session.user_id } },
-    { attributes: ["name"] }
-  );
+  const { petNames, count } = await Pets.findAndCountAll({
+    where: { user_id: session.user_id },
+    attributes: ["name"],
+  });
 
-  if (petNames) {
+  if (count > 0) {
+    const el = document.getElementById("petName-contact");
     for (var i = 0; i < count; i++) {
-      console.log(petNames[i]);
       var option = document.createElement("option");
       option.text = petNames[i];
       option.value = petNames[i];
-      document.querySelector("#petName-contact").appendChild(option);
+      el.appendChild(option);
     }
   }
 };
 
+// Same POST request for both forms
 const sendRequest = async (
   user_id,
   firstName,
@@ -98,39 +99,41 @@ const sendRequest = async (
     document.getElementById("inner-content").innerHTML =
       "Your appointment request has been received! Keep an eye on your email for updates.";
   } else {
-    document.getElementById("inner-content").innerHTML =
-      "We encountered an error while creating your appointment. Please try again.";
+    alert("Failed to submit appointment");
   }
 };
 
 const clientFormHandler = async (event) => {
   event.preventDefault();
 
-  const pet_name = document.querySelector("#petName-contact").value.trim();
-  const concern = document.querySelector("#concern-contact").value.trim();
+  try {
+    const pet_name = document.querySelector("#petName-contact").value.trim();
+    const concern = document.querySelector("#concern-contact").value.trim();
 
-  const userData = await Users.findByPk(session.user_id);
-  const petData = await Pets.findOne({
-    where: { user_id: userData.id, name: pet_name },
-  });
+    const userData = await Users.findByPk(session.user_id);
+    const petData = await Pets.findOne({
+      where: { user_id: userData.id, name: pet_name },
+    });
 
-  if (userData && petData && concern) {
-    sendRequest(
-      userData.id,
-      userData.firstName,
-      userData.lastName,
-      userData.email,
-      petData.petType,
-      petData.breed,
-      petData.birthday,
-      petData.sex,
-      petData.allergies,
-      petData.isNeuteredOrSpayed,
-      petData.vaccinated
-    );
-  } else {
-    document.getElementById("warning").innerHTML =
-      "You are missing one or more required fields";
+    if (userData && petData && concern) {
+      sendRequest(
+        userData.id,
+        userData.firstName,
+        userData.lastName,
+        userData.email,
+        petData.name,
+        petData.petType,
+        petData.breed,
+        petData.allergies,
+        petData.vaccinated,
+        petData.birthday,
+        petData.isNeuteredOrSpayed,
+        petData.sex,
+        concern
+      );
+    }
+  } catch (err) {
+    alert("You are missing one or more required fields");
   }
 };
 
@@ -185,11 +188,13 @@ const guestFormHandler = async (event) => {
   }
 };
 
-document
-  .querySelector(".guest-form")
-  .addEventListener("submit", guestFormHandler);
+var guestForm = document.querySelector(".guest-form");
+var clientForm = document.querySelector(".client-form");
 
-document
-  .querySelector(".client-form")
-  .addEventListener("submit", clientFormHandler)
-  .addEventListener("DOMContentLoaded", getPets);
+if (guestForm) {
+  guestForm.addEventListener("submit", guestFormHandler);
+}
+if (clientForm) {
+  getPets();
+  clientForm.addEventListener("submit", clientFormHandler);
+}

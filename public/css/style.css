@@ -72,8 +72,13 @@ body {
   object-fit: cover;
 }
 
-/* Contact Us section */
-.contact {
+/* Appointment sections */
+.appointment-container {
+  margin-top: 2rem;
+}
+
+/* Contact section */
+.contact-container {
   margin-top: 2rem;
 }
 

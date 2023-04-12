@@ -20,8 +20,6 @@ router.post("/", async (req, res) => {
       concern: req.body.concern,
     });
 
-    // Send appointment to administratives
-    // Send email to client
     res.status(200).json(newAppointment);
   } catch (err) {
     console.log(err);
