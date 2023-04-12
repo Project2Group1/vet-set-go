@@ -11,8 +11,8 @@
 					<a href="/appointment" class="button">Book Now</a>
 					{{/if}}
 				</div>
-				<div class="column is-narrow">
-					<img src="https://via.placeholder.com/400x250" alt="Pet image">
+				<div class="column is-narrow" id="hero-image">
+					<img src="/images/Homepage/Hero Banner.jpg" alt="Pet image" class="hero-image">
 				</div>
 			</div>
 		</div>
@@ -20,13 +20,29 @@
 </section>
 
 <main>
+
 	<!-- About Us Section -->
 	<section class="section" id="about">
 		<div class="container">
 			<h2 class="title is-2 has-text-centered">About Us</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis tincidunt pharetra lacus, id
-				consectetur elit ullamcorper id. Proin id interdum felis, id vestibulum ex. Sed venenatis purus nec
-				tellus pulvinar, vel convallis risus luctus.</p>
+			<div class="content has-text-centered">
+				<p>Welcome to Vetset Go! We are a passionate team of veterinary professionals dedicated to providing
+					exceptional care for your furry family members. Conveniently located in the heart of Toronto, our
+					clinic
+					offers a full range of veterinary services, from routine check-ups to emergency care.
+				</p>
+
+				<p>Our compassionate staff understands the unique bond between pets and their families, and we strive to
+					create a welcoming environment where your pets feel comfortable and safe. By combining
+					state-of-the-art
+					technology with personalized attention, we aim to ensure the health and well-being of your beloved
+					companions for years to come.
+				</p>
+
+				<p>Join our growing family at Vetset Go, where we treat your pets like the cherished members of our own
+					family. <span class="icon is-small"><i class="fas fa-heart" style="color: black;"></i></span>
+				</p>
+			</div>
 		</div>
 	</section>
 
@@ -37,31 +53,45 @@
 				<!-- Announcements -->
 				<div class="column">
 					<h2 class="title is-2 has-text-centered">Announcements</h2>
-					<ul>
-						<li>
-							<div class="content">
-								<p>Vetset Go is now offering a 10% discount on all dental services through the end
-									of the month.</p>
-								<p class="date">April 5, 2023</p>
+					<div class="box announcement-box">
+						<article class="media">
+							<div class="media-content">
+								<div class="content">
+									<p>
+										<strong>Vetset Go is now offering a 10% discount on all dental services through
+											the end
+											of the month.</strong>
+										<br>
+										<small class="date">April 5, 2023</small>
+									</p>
+								</div>
 							</div>
-						</li>
-						<li>
-							<div class="content">
-								<p>We will be closed on Easter Sunday. Please call our office if you have any
-									questions.</p>
-								<p class="date">March 26, 2023</p>
+						</article>
+					</div>
+					<div class="box announcement-box">
+						<article class="media">
+							<div class="media-content">
+								<div class="content">
+									<p>
+										<strong>We will be closed on Easter Sunday. Please call our office if you have
+											any
+											questions.</strong>
+										<br>
+										<small class="date">March 26, 2023</small>
+									</p>
+								</div>
 							</div>
-						</li>
-					</ul>
+						</article>
+					</div>
 				</div>
+
 				<!-- Forum -->
 				<div class="column">
 					<h2 class="title is-2 has-text-centered">Join the Discussion</h2>
 					<figure class="image is-3by2">
-						<img src="https://via.placeholder.com/640x480" alt="Forum Image">
+						<img src="/images/Homepage/Forum.jpg" alt="Forum Image">
 					</figure>
 					<a href="/api/forums" class="button is-large is-fullwidth is-primary">Join Now</a>
-
 				</div>
 			</div>
 		</div>
@@ -71,26 +101,28 @@
 	<section class="section" id="services">
 		<div class="container">
 			<h2 class="title is-2 has-text-centered">Services</h2>
-			<div class="carousel">
-				<div class="carousel-item is-active">
-					<img src="https://via.placeholder.com/400x250" alt="Wellness Exams">
-					<h3 class="title is-4 has-text-centered">Wellness Exams</h3>
+			<div class="columns is-centered is-multiline">
+				<!-- First row -->
+				<div class="column is-narrow service-item">
+					<img src="/images/Homepage/Wellness Exam - Services.jpg" alt="Wellness Exams" class="service-image">
+					<h3 class="title is-5 has-text-centered">Wellness Exams</h3>
 				</div>
-				<div class="carousel-item">
-					<img src="https://via.placeholder.com/400x250" alt="Vaccinations">
-					<h3 class="title is-4 has-text-centered">Vaccinations</h3>
+				<div class="column is-narrow service-item">
+					<img src="/images/Homepage/Vaccinations - Services.jpg" alt="Vaccinations" class="service-image">
+					<h3 class="title is-5 has-text-centered">Vaccinations</h3>
 				</div>
-				<div class="carousel-item">
-					<img src="https://via.placeholder.com/400x250" alt="Surgical Procedures">
-					<h3 class="title is-4 has-text-centered">Surgical Procedures</h3>
+				<div class="column is-narrow service-item">
+					<img src="/images/Homepage/Surgical - Services.jpg" alt="Surgical Procedures" class="service-image">
+					<h3 class="title is-5 has-text-centered">Surgical Procedures</h3>
 				</div>
-				<div class="carousel-item">
-					<img src="https://via.placeholder.com/400x250" alt="Dental Care">
-					<h3 class="title is-4 has-text-centered">Dental Care</h3>
+				<!-- Second row -->
+				<div class="column is-narrow service-item second-row-item">
+					<img src="/images/Homepage/Dental Care - Services.jpg" alt="Dental Care" class="service-image">
+					<h3 class="title is-5 has-text-centered">Dental Care</h3>
 				</div>
-				<div class="carousel-item">
-					<img src="https://via.placeholder.com/400x250" alt="Emergency Services">
-					<h3 class="title is-4 has-text-centered">Emergency Services</h3>
+				<div class="column is-narrow service-item second-row-item">
+					<img src="/images/Homepage/Emergency - Services.jpg" alt="Emergency Services" class="service-image">
+					<h3 class="title is-5 has-text-centered">Emergency Services</h3>
 				</div>
 			</div>
 		</div>
@@ -105,11 +137,11 @@
 					<div class="card">
 						<div class="card-image">
 							<figure class="image is-4by3">
-								<img src="https://bulma.io/images/placeholders/480x320.png" alt="Placeholder image">
+								<img src="/images/Homepage/The Team - V.jpg" alt="Veterinary">
 							</figure>
 						</div>
 						<div class="card-content">
-							<p class="title is-4">Dr. John Doe</p>
+							<p class="title is-4">Dr. Jane Smith</p>
 							<p class="subtitle is-6">Veterinarian</p>
 						</div>
 					</div>
@@ -118,11 +150,11 @@
 					<div class="card">
 						<div class="card-image">
 							<figure class="image is-4by3">
-								<img src="https://bulma.io/images/placeholders/480x320.png" alt="Placeholder image">
+								<img src="/images/Homepage/The Team - VT.jpg" alt="Veterinary Technician">
 							</figure>
 						</div>
 						<div class="card-content">
-							<p class="title is-4">Jane Smith</p>
+							<p class="title is-4"> Dr. John Doe</p>
 							<p class="subtitle is-6">Veterinary Technician</p>
 						</div>
 					</div>
@@ -131,7 +163,7 @@
 					<div class="card">
 						<div class="card-image">
 							<figure class="image is-4by3">
-								<img src="https://bulma.io/images/placeholders/480x320.png" alt="Placeholder image">
+								<img src="/images/Homepage/The Team - OM.jpg" alt="Office Manager">
 							</figure>
 						</div>
 						<div class="card-content">
@@ -150,7 +182,7 @@
 			<div class="container has-text-centered">
 				<h2 class="title is-2">Get in Touch</h2>
 				<p>Have any questions or concerns? Feel free to reach out to us.</p>
-				<a href="/contact" class="button is-light mt-4">Contact Us</a>
+				<a href="/contact" class="button is-medium is-light mt-4">Contact Us</a>
 			</div>
 		</div>
 	</section>
